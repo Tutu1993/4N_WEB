@@ -1,6 +1,4 @@
-require('cssDir/global/normalize.css')
-
-import App from 'jsDir/app.js'
+import App from 'componentDir/App.js'
 
 ReactDOM.render(
 	<App />,
