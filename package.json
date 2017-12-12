@@ -1,0 +1,61 @@
+{
+  "name": "4N_WEB",
+  "version": "1.0.0",
+  "description": "尝试使用 React + 其他插件，实现 4N 手表官网",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.prod.config.js",
+    "start": "webpack-dev-server --config webpack.dev.config.js --hot --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tutu1993/4N_WEB.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Tutu1993",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tutu1993/4N_WEB/issues"
+  },
+  "homepage": "https://github.com/Tutu1993/4N_WEB#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.2.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-react-transform": "^3.0.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-runtime": "^6.26.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "glob": "^7.1.2",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "postcss-loader": "^2.0.9",
+    "react-transform-hmr": "^1.0.4",
+    "redux-logger": "^3.0.6",
+    "style-loader": "^0.19.0",
+    "uglifyjs-webpack-plugin": "^1.1.2",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.5",
+    "webpack-plugin-hash-output": "^1.3.0"
+  },
+  "dependencies": {
+    "history": "^4.7.2",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.8",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  }
+}
