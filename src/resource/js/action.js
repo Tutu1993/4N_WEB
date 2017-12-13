@@ -1,6 +1,10 @@
 const INCREMENT = 'INCREMENT'
 const DECREMENT = 'DECREMENT'
 
+const PRESSE = 'PRESSE'
+const CONTACT = 'CONTACT'
+const RESET = 'RESET'
+
 const add = () => {
 	return {
 		type: INCREMENT
@@ -20,4 +24,24 @@ const addIfOdd = () => {
     }
 }
 
+const modalToPresse = () => {
+	return {
+		type: PRESSE
+	}
+}
+
+const modalToContact = () => {
+	return {
+		type: CONTACT
+	}
+}
+
+const modalToReset = () => {
+	return {
+		type: RESET
+	}
+}
+
 export { add, del, addIfOdd }
+
+export { modalToPresse, modalToContact, modalToReset }

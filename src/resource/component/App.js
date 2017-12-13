@@ -4,8 +4,8 @@ import { ConnectedRouter } from 'react-router-redux'
 import { store, history } from 'jsDir/store.js'
 import Nav from 'componentDir/Nav.js'
 import Footer from 'componentDir/Footer.js'
+import Modal from 'componentDir/Modal.js'
 import CounterBox from 'componentDir/CounterBox.js'
-
 class App extends React.Component {
 	render() {
 		return (
@@ -17,6 +17,7 @@ class App extends React.Component {
 							<Route path="/" component={CounterBox}/>
 						</Switch>
 						<Footer />
+						<Modal />
 					</div>
 			    </ConnectedRouter>
 			</Provider>
