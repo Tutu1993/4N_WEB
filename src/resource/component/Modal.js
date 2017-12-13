@@ -1,3 +1,5 @@
+import { store } from 'jsDir/store.js'
+import { modalToReset } from 'jsDir/action.js'
 import { connect } from 'react-redux'
 import style from 'cssDir/global/modal.css'
 
@@ -13,7 +15,7 @@ class ModalContainer extends React.Component {
 		e.target.parentNode.parentNode.nextSibling.style.zIndex = '999'
 	}
 	render() {
-		const { modal } = this.props
+		const { modal, modalToReset } = this.props
 		const presseList = (
 			<div className={ style.presse }>
 				<h1>文章媒体</h1>
@@ -58,9 +60,9 @@ class ModalContainer extends React.Component {
 			if (modal === 'presse') {
 				display = (
 					<div>
-						<div className={ style.modal }></div>
+						<div className={ style.modal } onClick={ modalToReset }></div>
 						<div className={ style.content }>
-							<div className={ style.close }></div>
+							<div className={ style.close } onClick={ modalToReset }></div>
 							{ presseList }
 						</div>
 					</div>
@@ -68,9 +70,9 @@ class ModalContainer extends React.Component {
 			} else if (modal === 'contact') {
 				display = (
 					<div>
-						<div className={ style.modal }></div>
+						<div className={ style.modal } onClick={ modalToReset }></div>
 						<div className={ style.content }>
-							<div className={ style.close }></div>
+							<div className={ style.close } onClick={ modalToReset }></div>
 							{ contactList }
 						</div>
 					</div>
@@ -90,8 +92,14 @@ const mapStateToProps = state => {
 		modal: state.modal,
 	}
 }
+const mapDispatchToProps = dispatch => {
+	return {
+		modalToReset: () => store.dispatch(modalToReset()),
+	}
+}
 const Modal = connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(ModalContainer)
 
 export default Modal

@@ -13,11 +13,20 @@ class FooterContainer extends React.Component {
 		const links = ['/01-display', '/news', '/collection', '/retailers']
 		const address = ['4N-MVT01/D01', '新闻', '集', '零售商']
 		const listLinkss = links.map((link, index) => {
-			if (history.location.pathname === link) {
-				return <Link to={ link } key={ index } className={ style.active }>{ address[index] }</Link>
+			if (modal === null) {
+				if (history.location.pathname === link) {
+					return <Link to={ link } key={ index } className={ style.active }>{ address[index] }</Link>
+				} else {
+					return <Link to={ link } key={ index }>{ address[index] }</Link>
+				}
 			} else {
-				return <Link to={ link } key={ index }>{ address[index] }</Link>
+				if (history.location.pathname === link) {
+					return <Link to={ link } key={ index } className={ style.active } onClick={ modalToReset }>{ address[index] }</Link>
+				} else {
+					return <Link to={ link } key={ index } onClick={ modalToReset }>{ address[index] }</Link>
+				}
 			}
+
 		})
 		const modalName = ['文章媒体', '联系']
 		const listModals = modalName.map((value, index) => {
@@ -48,6 +57,7 @@ class FooterContainer extends React.Component {
 
 const mapStateToProps = state => {
 	return {
+		routerReducer: state.routerReducer,
 		modal: state.modal,
 	}
 }
