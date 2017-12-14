@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { store, history } from 'jsDir/store.js'
-import { modalToPresse, modalToContact, modalToReset } from 'jsDir/action.js'
+import { toggleModalPresse, toggleModalContact, closeModal } from 'jsDir/action.js'
 import { connect } from 'react-redux'
 import style from 'cssDir/global/footer.css'
 
@@ -9,11 +9,11 @@ class FooterContainer extends React.Component {
 		super(props)
 	}
 	render() {
-		const { modal, modalToPresse, modalToContact, modalToReset } = this.props
+		const { modal, toggleModalPresse, toggleModalContact, closeModal } = this.props
 		const links = ['/01-display', '/news', '/collection', '/retailers']
 		const address = ['4N-MVT01/D01', '新闻', '集', '零售商']
 		const listLinkss = links.map((link, index) => {
-			if (modal === null) {
+			if (modal.modal === null) {
 				if (history.location.pathname === link) {
 					return <Link to={ link } key={ index } className={ style.active }>{ address[index] }</Link>
 				} else {
@@ -21,9 +21,9 @@ class FooterContainer extends React.Component {
 				}
 			} else {
 				if (history.location.pathname === link) {
-					return <Link to={ link } key={ index } className={ style.active } onClick={ modalToReset }>{ address[index] }</Link>
+					return <Link to={ link } key={ index } className={ style.active } onClick={ closeModal }>{ address[index] }</Link>
 				} else {
-					return <Link to={ link } key={ index } onClick={ modalToReset }>{ address[index] }</Link>
+					return <Link to={ link } key={ index } onClick={ closeModal }>{ address[index] }</Link>
 				}
 			}
 
@@ -31,16 +31,16 @@ class FooterContainer extends React.Component {
 		const modalName = ['文章媒体', '联系']
 		const listModals = modalName.map((value, index) => {
 			if (index === 0) {
-				if (modal === 'presse') {
-					return <a onClick={ modalToReset } key={ index } className={ style.active }>{ value }</a>
+				if (modal.modal === 'presse') {
+					return <a onClick={ toggleModalPresse } key={ index } className={ style.active }>{ value }</a>
 				} else {
-					return <a onClick={ modalToPresse } key={ index }>{ value }</a>
+					return <a onClick={ toggleModalPresse } key={ index }>{ value }</a>
 				}
 			} else {
-				if (modal === 'contact') {
-					return <a onClick={ modalToReset } key={ index } className={ style.active }>{ value }</a>
+				if (modal.modal === 'contact') {
+					return <a onClick={ toggleModalContact } key={ index } className={ style.active }>{ value }</a>
 				} else {
-					return <a onClick={ modalToContact } key={ index }>{ value }</a>
+					return <a onClick={ toggleModalContact } key={ index }>{ value }</a>
 				}
 			}
 		})
@@ -63,9 +63,9 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
 	return {
-		modalToPresse: () => store.dispatch(modalToPresse()),
-		modalToContact: () => store.dispatch(modalToContact()),
-		modalToReset: () => store.dispatch(modalToReset()),
+		toggleModalPresse: () => store.dispatch(toggleModalPresse()),
+		toggleModalContact: () => store.dispatch(toggleModalContact()),
+		closeModal: () => store.dispatch(closeModal()),
 	}
 }
 const Footer = connect(

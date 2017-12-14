@@ -1,47 +1,121 @@
-const INCREMENT = 'INCREMENT'
-const DECREMENT = 'DECREMENT'
+const CHANGESTATE = 'CHANGESTATE'
+const CHANGEMODAL = 'CHANGEMODAL'
 
-const PRESSE = 'PRESSE'
-const CONTACT = 'CONTACT'
-const RESET = 'RESET'
-
-const add = () => {
+const updateState = () => {
 	return {
-		type: INCREMENT
+		type: CHANGESTATE,
 	}
 }
-const del = () => {
+
+const modalToPresseIn = () => {
 	return {
-		type: DECREMENT
+		type: CHANGEMODAL,
+		payload: {
+			modal: 'presse',
+			in: true
+		}
 	}
 }
-const addIfOdd = () => {
+
+const modalToPresseOut = () => {
+	return {
+		type: CHANGEMODAL,
+		payload: {
+			modal: 'presse',
+			in: false
+		}
+	}
+}
+
+const modalToContactIn = () => {
+	return {
+		type: CHANGEMODAL,
+		payload: {
+			modal: 'contact',
+			in: true
+		}
+	}
+}
+
+const modalToContactOut = () => {
+	return {
+		type: CHANGEMODAL,
+		payload: {
+			modal: 'contact',
+			in: false
+		}
+	}
+}
+
+const modalToResetOut = () => {
+	return {
+		type: CHANGEMODAL,
+		payload: {
+			modal: null,
+			in: false
+		}
+	}
+}
+
+const toggleModalPresse = () => {
     return (dispatch, getState) => {
-        if (getState().counter % 2 == 0) {
-            return
-        }
-        dispatch(add())
+		dispatch(updateState())
+		if (getState().isFetching) {
+			if (getState().modal.modal === null) {
+				dispatch(modalToPresseIn())
+			} else if (getState().modal.modal === 'presse') {
+				dispatch(modalToPresseOut())
+				setTimeout(() => {
+					dispatch(modalToResetOut())
+				}, 300)
+			} else if (getState().modal.modal === 'contact') {
+				dispatch(modalToContactOut())
+				setTimeout(() => {
+					dispatch(modalToResetOut())
+					dispatch(modalToPresseIn())
+				}, 50)
+			}
+		}
+		dispatch(updateState())
     }
 }
 
-const modalToPresse = () => {
-	return {
-		type: PRESSE
-	}
+const toggleModalContact = () => {
+    return (dispatch, getState) => {
+		dispatch(updateState())
+		if (getState().isFetching) {
+			if (getState().modal.modal === null) {
+				dispatch(modalToContactIn())
+			} else if (getState().modal.modal === 'presse') {
+				dispatch(modalToPresseOut())
+				setTimeout(() => {
+					dispatch(modalToResetOut())
+					dispatch(modalToContactIn())
+				}, 50)
+			} else if (getState().modal.modal === 'contact') {
+				dispatch(modalToContactOut())
+				dispatch(modalToResetOut())
+			}
+		}
+		dispatch(updateState())
+    }
 }
 
-const modalToContact = () => {
-	return {
-		type: CONTACT
-	}
+const closeModal = () => {
+    return (dispatch, getState) => {
+		dispatch(updateState())
+		if (getState().isFetching) {
+			if (getState().modal.modal === 'presse') {
+				dispatch(modalToPresseOut())
+			} else if (getState().modal.modal === 'contact') {
+				dispatch(modalToContactOut())
+			}
+			setTimeout(() => {
+				dispatch(modalToResetOut())
+			}, 300)
+		}
+		dispatch(updateState())
+    }
 }
 
-const modalToReset = () => {
-	return {
-		type: RESET
-	}
-}
-
-export { add, del, addIfOdd }
-
-export { modalToPresse, modalToContact, modalToReset }
+export { toggleModalPresse, toggleModalContact, closeModal }

@@ -1,11 +1,15 @@
-export default (state = null, action) => {
+const status = {
+	modal: null,
+	in: false
+}
+
+export default (state = status, action) => {
 	switch (action.type) {
-		case 'PRESSE':
-			return 'presse'
-		case 'CONTACT':
-			return 'contact'
-		case 'RESET':
-			return null
+		case 'CHANGEMODAL':
+			return Object.assign({}, {
+				modal: action.payload.modal,
+				in: action.payload.in,
+			})
 		default:
 			return state
 	}

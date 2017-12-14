@@ -1,5 +1,5 @@
 import { store } from 'jsDir/store.js'
-import { modalToReset } from 'jsDir/action.js'
+import { closeModal } from 'jsDir/action.js'
 import { connect } from 'react-redux'
 import Transition from 'react-transition-group/Transition';
 import style from 'cssDir/global/modal.css'
@@ -16,8 +16,8 @@ class ModalContainer extends React.Component {
 		e.target.parentNode.parentNode.nextSibling.style.zIndex = '999'
 	}
 	render() {
-		const { modal, modalToReset } = this.props
-		const duration = 500;
+		const { modal, closeModal } = this.props
+		const duration = 300
 		const defaultStyle = {
 		  transition: `opacity ${duration}ms ease-in-out`,
 		  opacity: 0,
@@ -64,42 +64,40 @@ class ModalContainer extends React.Component {
 		)
 		let display
 
-		if (modal === null) {
+		if (modal.modal === null) {
 			display = null
 		} else {
-			if (modal === 'presse') {
+			if (modal.modal === 'presse') {
 				display = (
-					<Transition in={ true } timeout={ duration }>
-						{(state) => (
-							<div style={ Object.assign({}, defaultStyle, transitionStyles[state]) }>
-								<div className={ style.modal } onClick={ modalToReset }></div>
-								<div className={ style.content }>
-									<div className={ style.close } onClick={ modalToReset }></div>
-									{ presseList }
-								</div>
-							</div>
-						)}
-					</Transition>
+					<div>
+						<div className={ style.modal } onClick={ closeModal }></div>
+						<div className={ style.content }>
+							<div className={ style.close } onClick={ closeModal }></div>
+							{ presseList }
+						</div>
+					</div>
 				)
-			} else if (modal === 'contact') {
+			} else if (modal.modal === 'contact') {
 				display = (
-					<Transition in={ true } timeout={ duration }>
-						{(state) => (
-							<div style={ Object.assign({}, defaultStyle, transitionStyles[state]) }>
-								<div className={ style.modal } onClick={ modalToReset }></div>
-								<div className={ style.content }>
-									<div className={ style.close } onClick={ modalToReset }></div>
-									{ contactList }
-								</div>
-							</div>
-						)}
-					</Transition>
+					<div>
+						<div className={ style.modal } onClick={ closeModal }></div>
+						<div className={ style.content }>
+							<div className={ style.close } onClick={ closeModal }></div>
+							{ contactList }
+						</div>
+					</div>
 				)
 			}
 		}
 		return (
 			<div>
-				{ display }
+				<Transition in={ modal.in } timeout={ duration }>
+					{(state) => (
+						<div style={ Object.assign({}, defaultStyle, transitionStyles[state]) }>
+							{ display }
+						</div>
+					)}
+				</Transition>
 			</div>
 		)
 	}
@@ -112,7 +110,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
 	return {
-		modalToReset: () => store.dispatch(modalToReset()),
+		closeModal: () => store.dispatch(closeModal()),
 	}
 }
 const Modal = connect(

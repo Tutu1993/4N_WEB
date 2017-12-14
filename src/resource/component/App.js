@@ -5,7 +5,6 @@ import { store, history } from 'jsDir/store.js'
 import Nav from 'componentDir/Nav.js'
 import Footer from 'componentDir/Footer.js'
 import Modal from 'componentDir/Modal.js'
-import CounterBox from 'componentDir/CounterBox.js'
 class App extends React.Component {
 	render() {
 		return (
@@ -14,7 +13,17 @@ class App extends React.Component {
 					<div>
 						<Nav />
 						<Switch>
-							<Route path="/" component={CounterBox}/>
+							<Route path="/" render={()=>(<div>
+								hello world
+								<div>hello world</div>
+								<div>hello world</div>
+								<div>hello world</div>
+								<div>hello world</div>
+								<div>hello world</div>
+								<div>hello world</div>
+								<div>hello world</div>
+								<div>hello world</div>
+								</div>)}/>
 						</Switch>
 						<Footer />
 						<Modal />
