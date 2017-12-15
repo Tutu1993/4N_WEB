@@ -5,27 +5,19 @@ import { store, history } from 'jsDir/store.js'
 import Nav from 'componentDir/Nav.js'
 import Footer from 'componentDir/Footer.js'
 import Modal from 'componentDir/Modal.js'
+import Index from 'componentDir/Index.js'
+import Display01 from 'componentDir/Display01.js'
 
 class App extends React.Component {
 	render() {
 		return (
-			<Provider store={store}>
-			    <ConnectedRouter history={history}>
+			<Provider store={ store }>
+			    <ConnectedRouter history={ history }>
 					<div>
 						<Nav />
 						<Switch>
-							<Route path="/" render={()=>(
-								<div style={ {height: "9000px"} }>
-									<div>hello world</div>
-									<div>hello world</div>
-									<div>hello world</div>
-									<div style={ {height: "500px"} }>hello world</div>
-									<div>hello world</div>
-									<div>hello world</div>
-									<div>hello world</div>
-									<div data-0="background-color:rgb(0,0,255);" data-500="background-color:rgb(255,0,0);">hello world</div>
-								</div>
-							)}/>
+							<Route exact path="/" component={ Index }/>
+							<Route exact path="/01-display" component={ Display01 }/>
 						</Switch>
 						<Footer />
 						<Modal />

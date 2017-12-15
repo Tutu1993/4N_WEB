@@ -19,12 +19,13 @@ class ModalContainer extends React.Component {
 		const { modal, closeModal } = this.props
 		const duration = 300
 		const defaultStyle = {
-		  transition: `opacity ${duration}ms ease-in-out`,
-		  opacity: 0,
+			display: modal.modal ? 'block' : 'none',
+			opacity: 0,
+			transition: `opacity ${duration}ms ease-in-out`,
 		}
 		const transitionStyles = {
-		  entering: { opacity: 0 },
-		  entered:  { opacity: 1 },
+			entering: { opacity: 0 },
+			entered:  { opacity: 1 },
 		}
 		const presseList = (
 			<div className={ style.presse }>
@@ -93,7 +94,7 @@ class ModalContainer extends React.Component {
 			<div>
 				<Transition in={ modal.in } timeout={ duration }>
 					{(state) => (
-						<div style={ Object.assign({}, defaultStyle, transitionStyles[state]) }>
+						<div className={style.fixed} style={ Object.assign({}, defaultStyle, transitionStyles[state]) }>
 							{ display }
 						</div>
 					)}

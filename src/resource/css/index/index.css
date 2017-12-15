@@ -1,0 +1,135 @@
+.box {
+  height: 9000px;
+}
+.welcome {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.welcome span {
+  display: block;
+  position: absolute;
+  width: 700px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  font-size: 100px;
+  line-height: 90px;
+  font-weight: 400;
+  font-family: treg, arial, sans-serif;
+  text-align: center;
+  color: #f6f6f6;
+  transform: translate(-50%, -50%);
+}
+.welcome_img {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url("../../imgs/index/4N-welcome.jpg") no-repeat center center;
+  z-index: 99;
+}
+.list_box {
+  position: fixed;
+  height: 366px;
+  width: 1877px;
+  top: 50%;
+  background-color: #252525;
+  padding: 37px;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+.list_box:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+.list_box > div {
+  position: relative;
+  width: 413px;
+  height: 366px;
+  float: left;
+  color: #f6f6f6;
+}
+.list_box > div:not(:last-child) {
+  margin-right: 75px;
+}
+.list_box > div:not(:last-child):after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 1px;
+  height: 366px;
+  top: 0;
+  right: -38px;
+  background-color: #f6f6f6;
+}
+.list_head {
+  position: relative;
+  width: 100%;
+  height: 30px;
+}
+.list_head span {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: tbold, arial, sans-serif;
+}
+.list_logo {
+  position: absolute;
+  width: 52px;
+  height: 20px;
+  top: 0;
+  right: 0;
+}
+.list_logo a {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.list_logo a:first-child {
+  background: url("../../imgs/index/tw-g.svg") no-repeat center center;
+  margin-right: 12px;
+}
+.list_logo a:last-child {
+  background: url("../../imgs/index/fb-g.svg") no-repeat center center;
+}
+.list_title {
+  font-size: 34px;
+  line-height: 52px;
+  font-weight: 400;
+  font-family: tlight, 'arial narrow', sans-serif;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+.list_img {
+  width: 100%;
+  height: 234px;
+  background: url("../../imgs/index/161118104010.jpg") no-repeat center center;
+  background-size: contain;
+}
+.list_link {
+  position: absolute;
+  display: block;
+  width: 90px;
+  height: 12px;
+  bottom: 0;
+  left: 0;
+  font-size: 10px;
+  font-weight: 400;
+  font-family: treg, arial, sans-serif;
+  letter-spacing: 1px;
+  padding: 7px 7px 6px 8px;
+  border-radius: 3px;
+  background: #f6f6f6;
+  color: #252525;
+  user-select: none;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
