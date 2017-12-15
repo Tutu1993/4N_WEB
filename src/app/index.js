@@ -4,3 +4,5 @@ ReactDOM.render(
 	<App />,
 	document.querySelector('#main')
 )
+
+skrollr.init()

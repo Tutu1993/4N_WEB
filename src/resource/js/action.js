@@ -1,6 +1,12 @@
 const CHANGESTATE = 'CHANGESTATE'
 const CHANGEMODAL = 'CHANGEMODAL'
 
+function delay(ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 const updateState = () => {
 	return {
 		type: CHANGESTATE,
@@ -63,20 +69,22 @@ const toggleModalPresse = () => {
 		if (getState().isFetching) {
 			if (getState().modal.modal === null) {
 				dispatch(modalToPresseIn())
+				dispatch(updateState())
 			} else if (getState().modal.modal === 'presse') {
 				dispatch(modalToPresseOut())
-				setTimeout(() => {
+				delay(300).then(() => {
 					dispatch(modalToResetOut())
-				}, 300)
+					dispatch(updateState())
+				})
 			} else if (getState().modal.modal === 'contact') {
 				dispatch(modalToContactOut())
-				setTimeout(() => {
+				delay(300).then(() => {
 					dispatch(modalToResetOut())
 					dispatch(modalToPresseIn())
-				}, 50)
+					dispatch(updateState())
+				})
 			}
 		}
-		dispatch(updateState())
     }
 }
 
@@ -86,18 +94,22 @@ const toggleModalContact = () => {
 		if (getState().isFetching) {
 			if (getState().modal.modal === null) {
 				dispatch(modalToContactIn())
+				dispatch(updateState())
 			} else if (getState().modal.modal === 'presse') {
 				dispatch(modalToPresseOut())
-				setTimeout(() => {
+				delay(300).then(() => {
 					dispatch(modalToResetOut())
 					dispatch(modalToContactIn())
-				}, 50)
+					dispatch(updateState())
+				})
 			} else if (getState().modal.modal === 'contact') {
 				dispatch(modalToContactOut())
-				dispatch(modalToResetOut())
+				delay(300).then(() => {
+					dispatch(modalToResetOut())
+					dispatch(updateState())
+				})
 			}
 		}
-		dispatch(updateState())
     }
 }
 
@@ -110,11 +122,11 @@ const closeModal = () => {
 			} else if (getState().modal.modal === 'contact') {
 				dispatch(modalToContactOut())
 			}
-			setTimeout(() => {
+			delay(300).then(() => {
 				dispatch(modalToResetOut())
-			}, 300)
+				dispatch(updateState())
+			})
 		}
-		dispatch(updateState())
     }
 }
 

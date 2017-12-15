@@ -9,6 +9,7 @@ const pluginsConfig = [
 		React: 'react',
 		ReactDOM: 'react-dom',
 		PropTypes: 'prop-types',
+		skrollr: 'vendorDir/skrollr.min.js',
 	}),
 ]
 
