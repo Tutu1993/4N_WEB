@@ -1,0 +1,23 @@
+.contact {
+  position: relative;
+}
+.contact h1 {
+  padding-top: 32px;
+  padding-bottom: 183px;
+}
+.contact span {
+  display: block;
+  font-family: "Times New Roman";
+}
+.contact div {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+  left: 0;
+  font-size: 13px;
+  line-height: 15px;
+}
+.contact a {
+  display: block;
+  margin-bottom: 20px;
+}

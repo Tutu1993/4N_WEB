@@ -1,11 +1,11 @@
 import { delay } from 'vendorDir/function.js'
 import { store } from 'jsDir/store.js'
-import { loaderToNext, loaderToNull } from 'jsDir/action.js'
+import { loaderToNext, loaderToReset } from 'jsDir/action.js'
 import { connect } from 'react-redux'
-import style from 'cssDir/index/index.css'
-import NewsList from 'componentDir/index/NewsList.js'
+import style from 'cssDir/welcome/welcome.css'
+import NewsList from 'componentDir/welcome/NewsList.js'
 
-class IndexContainer extends React.Component {
+class WelcomeContainer extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -26,14 +26,13 @@ class IndexContainer extends React.Component {
 	}
 	handleWheel() {
 		const top = this.state.skrollr.getScrollTop()
-		console.log( top )
-		const { loader, loaderToNext, loaderToNull } = this.props
+		const { loader, loaderToNext, loaderToReset } = this.props
 		if (top > 5720) {
-			if (loader.state === null) {
-				this.props.loaderToNext()
-				delay(3000).then(() => {
-					this.props.loaderToNull()
-				})
+			if (loader.loader === null) {
+				loaderToNext()
+				// delay(3000).then(() => {
+				// 	loaderToReset()
+				// })
 			}
 		}
 	}
@@ -55,10 +54,10 @@ class IndexContainer extends React.Component {
 	}
 }
 
-IndexContainer.propTypes = {
+WelcomeContainer.propTypes = {
 	loader: PropTypes.object.isRequired,
 	loaderToNext: PropTypes.func.isRequired,
-	loaderToNull: PropTypes.func.isRequired,
+	loaderToReset: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => {
@@ -69,12 +68,12 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		loaderToNext: () => store.dispatch(loaderToNext()),
-		loaderToNull: () => store.dispatch(loaderToNull()),
+		loaderToReset: () => store.dispatch(loaderToReset()),
 	}
 }
-const Index = connect(
+const Welcome = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(IndexContainer)
+)(WelcomeContainer)
 
-export default Index
+export default Welcome

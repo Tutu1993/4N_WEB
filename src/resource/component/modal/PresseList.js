@@ -1,10 +1,11 @@
-import style from 'cssDir/global/modal.css'
+import style from 'cssDir/global/modal/presseList.css'
 
 class PresseList extends React.Component {
 	constructor(props) {
 		super(props)
 	}
 	render() {
+		const { clickFunc } = this.props
 		return (
 			<div className={ style.presse }>
 				<h1>文章媒体</h1>
@@ -18,7 +19,7 @@ class PresseList extends React.Component {
 						<a href="http://www.4nparis.com/press/presskit4N_2016_videos.zip">短片</a>
 					</span>
 					<span>
-						<a id="a-news-letter" onClick={ this.props.clickFunc }>预定4N的新闻通讯</a>
+						<a id="a-news-letter" onClick={ clickFunc }>预定4N的新闻通讯</a>
 					</span>
 				</div>
 				<div className={ style.form }>

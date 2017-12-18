@@ -3,57 +3,52 @@ import updateState from 'actionDir/updateState.js'
 
 const CHANGELOADER = 'CHANGELOADER'
 
-const nextAllTure = () => {
+const loaderToNextIn = () => {
 	return {
 		type: CHANGELOADER,
 		payload: {
-			state: 'toNext',
-			loader: true,
-			cover: true,
+			loader: 'toNext',
+			in: true,
 		}
 	}
 }
 
-const nextTurnFalse = () => {
+const loaderToNextOut = () => {
 	return {
 		type: CHANGELOADER,
 		payload: {
-			state: 'toNext',
-			loader: false,
-			cover: true,
+			loader: 'toNext',
+			in: false,
 		}
 	}
 }
 
-const lastAllTure = () => {
+const loaderToLastIn = () => {
 	return {
 		type: CHANGELOADER,
 		payload: {
-			state: 'toLast',
-			loader: true,
-			cover: true,
+			loader: 'toLast',
+			in: true,
 		}
 	}
 }
 
-const lastTurnFalse = () => {
+const loaderToLastOut = () => {
 	return {
 		type: CHANGELOADER,
 		payload: {
-			state: 'toLast',
-			loader: false,
-			cover: true,
+			loader: 'toLast',
+			in: false,
 		}
 	}
 }
 
-const resetLoader = () => {
+const loaderToResetOut = () => {
 	return {
 		type: CHANGELOADER,
 		payload: {
-			state: null,
-			loader: false,
-			cover: false,
+			modal: null,
+			in: false,
 		}
 	}
 }
@@ -62,7 +57,7 @@ const loaderToNext = () => {
 	return (dispatch, getState) => {
 		dispatch(updateState())
 		if (getState().isFetching) {
-			dispatch(nextAllTure())
+			dispatch(loaderToNextIn())
 		}
 		dispatch(updateState())
     }
@@ -72,27 +67,27 @@ const loaderToLast = () => {
 	return (dispatch, getState) => {
 		dispatch(updateState())
 		if (getState().isFetching) {
-			dispatch(lastAllTure())
+			dispatch(loaderToLastIn())
 		}
 		dispatch(updateState())
     }
 }
 
-const loaderToNull = () => {
+const loaderToReset = () => {
 	return (dispatch, getState) => {
 		dispatch(updateState())
 		if (getState().isFetching) {
-			if (getState().loader.state === 'toNext') {
-				dispatch(nextTurnFalse())
-			} else if (getState().loader.state === 'toLast') {
-				dispatch(lastTurnFalse())
+			if (getState().loader.loader === 'toNext') {
+				dispatch(loaderToNextOut())
+			} else if (getState().loader.loader === 'toLast') {
+				dispatch(loaderToLastOut())
 			}
 			delay(1500).then(() => {
-				dispatch(resetLoader())
+				dispatch(loaderToResetOut())
 				dispatch(updateState())
 			})
 		}
     }
 }
 
-export { loaderToNext, loaderToLast, loaderToNull }
+export { loaderToNext, loaderToLast, loaderToReset }

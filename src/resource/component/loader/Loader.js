@@ -11,7 +11,7 @@ class LoaderContainer extends React.Component {
 		const { loader } = this.props
 		const duration = 750
 		const defaultStyle = {
-			display: loader.state ? 'block' : 'none',
+			display: loader.loader ? 'block' : 'none',
 			transition: `all ${duration}ms ease-in-out`,
 		}
 		const loaderStyles = {
@@ -25,21 +25,19 @@ class LoaderContainer extends React.Component {
 			entered:  { top: '0%' },
 		}
 		return (
-			<Transition in={ loader.loader } timeout={ duration }>
+			<Transition in={ loader.in } timeout={ duration }>
 				{(state) => (
-					loader.state ? (
-						<div className={ style.box } style={ Object.assign({}, defaultStyle, loaderStyles[state]) }>
-							<div className={ style.cover }></div>
-							<Transition in={ loader.cover } timeout={ duration }>
-								{(state) => (
-									<div className={ style.content } style={ Object.assign({}, defaultStyle, coverStyles[state]) }>
-										<h4>00<br /><span>欢迎</span></h4>
-										<div className={ style.gif }></div>
-									</div>
-								)}
-							</Transition>
-						</div>
-					) : null
+					<div className={ style.box } style={ Object.assign({}, defaultStyle, loaderStyles[state]) }>
+						<div className={ style.cover }></div>
+						<Transition in={ !(loader.loader === null) } timeout={ duration }>
+							{(state) => (
+								<div className={ style.content } style={ Object.assign({}, defaultStyle, loaderStyles[state]) }>
+									<h4>00<br /><span>欢迎</span></h4>
+									<div className={ style.gif }></div>
+								</div>
+							)}
+						</Transition>
+					</div>
 				)}
 			</Transition>
 		)

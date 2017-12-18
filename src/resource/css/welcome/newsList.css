@@ -21,11 +21,11 @@
   height: 20px;
 }
 .list_logo a:first-child {
-  background: url("../../imgs/index/tw-g.svg") no-repeat center center;
+  background: url("../../imgs/welcome/tw-g.svg") no-repeat center center;
   margin-right: 12px;
 }
 .list_logo a:last-child {
-  background: url("../../imgs/index/fb-g.svg") no-repeat center center;
+  background: url("../../imgs/welcome/fb-g.svg") no-repeat center center;
 }
 .list_title {
   font-size: 34px;
@@ -38,8 +38,6 @@
 .list_img {
   width: 100%;
   height: 234px;
-  background: url("../../imgs/index/161118104010.jpg") no-repeat center center;
-  background-size: contain;
 }
 .list_link {
   position: absolute;

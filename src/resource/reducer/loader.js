@@ -1,16 +1,14 @@
 const status = {
-	state: null,
-	loader: false,
-	cover: false,
+	loader: null,
+	in: false,
 }
 
 export default (state = status, action) => {
 	switch (action.type) {
 		case 'CHANGELOADER':
 			return Object.assign({}, {
-				state: action.payload.state,
 				loader: action.payload.loader,
-				cover: action.payload.cover,
+				in: action.payload.in,
 			})
 		default:
 			return state

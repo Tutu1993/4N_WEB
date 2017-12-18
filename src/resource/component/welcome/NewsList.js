@@ -1,29 +1,29 @@
 import { Link } from 'react-router-dom'
-import style from 'cssDir/index/newsList.css'
+import style from 'cssDir/welcome/newsList.css'
 
 const newsArr = [
 	{
 		time: '30 三月 2017',
 		title: '4N SAPPHIRE PLANET BLUE',
-		img: require('imgsDir/index/170330032559.jpg'),
+		img: require('imgsDir/welcome/170330032559.jpg'),
 		href: '/news',
 	},
 	{
 		time: '18 十一月 2016',
 		title: '4N & Camille LACOURT',
-		img: require('imgsDir/index/161118104010.jpg'),
+		img: require('imgsDir/welcome/161118104010.jpg'),
 		href: '/news',
 	},
 	{
 		time: '24 十月 2016',
 		title: '4N SAPPHIRE PLANET 2016',
-		img: require('imgsDir/index/161024150404.jpg'),
+		img: require('imgsDir/welcome/161024150404.jpg'),
 		href: '/news',
 	},
 	{
 		time: '24 十月 2016',
 		title: '4N AT SALON QP 2016',
-		img: require('imgsDir/index/161024145536.jpg'),
+		img: require('imgsDir/welcome/161024145536.jpg'),
 		href: '/news',
 	},
 ]

@@ -2,7 +2,7 @@ import { store } from 'jsDir/store.js'
 import { closeModal } from 'jsDir/action.js'
 import { connect } from 'react-redux'
 import Transition from 'react-transition-group/Transition';
-import style from 'cssDir/global/modal.css'
+import style from 'cssDir/global/modal/modal.css'
 import PresseList from 'componentDir/modal/PresseList.js'
 import ContactList from 'componentDir/modal/ContactList.js'
 

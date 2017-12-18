@@ -1,4 +1,4 @@
-import style from 'cssDir/global/modal.css'
+import style from 'cssDir/global/modal/contactList.css'
 
 const ContactList = (
 	<div className={ style.contact }>
