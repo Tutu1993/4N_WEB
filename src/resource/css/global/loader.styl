@@ -27,6 +27,7 @@
 	height 100%
 	background-color #f0f0f0
 	z-index 999
+	animation toTop .75s .75s ease-in-out forwards
 	h4
 		position: absolute
 		top 50%
@@ -48,3 +49,8 @@
 	left 50%
 	transform translateX(-50%)
 	background: url('../../imgs/global/4N-loader.gif') no-repeat center center
+@keyframes toTop
+	from
+		top 70%
+	to
+		top 0%

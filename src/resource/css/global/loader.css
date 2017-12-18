@@ -29,6 +29,7 @@
   height: 100%;
   background-color: #f0f0f0;
   z-index: 999;
+  animation: toTop 0.75s 0.75s ease-in-out forwards;
 }
 .content h4 {
   position: absolute;
@@ -52,4 +53,36 @@
   left: 50%;
   transform: translateX(-50%);
   background: url("../../imgs/global/4N-loader.gif") no-repeat center center;
+}
+@-moz-keyframes toTop {
+  from {
+    top: 70%;
+  }
+  to {
+    top: 0%;
+  }
+}
+@-webkit-keyframes toTop {
+  from {
+    top: 70%;
+  }
+  to {
+    top: 0%;
+  }
+}
+@-o-keyframes toTop {
+  from {
+    top: 70%;
+  }
+  to {
+    top: 0%;
+  }
+}
+@keyframes toTop {
+  from {
+    top: 70%;
+  }
+  to {
+    top: 0%;
+  }
 }

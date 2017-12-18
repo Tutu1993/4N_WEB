@@ -20,24 +20,18 @@ class LoaderContainer extends React.Component {
 			exiting: { left: '0%' },
 			exited: { left: '-100%' }
 		}
-		const coverStyles = {
-			entering: { top: '60%' },
-			entered:  { top: '0%' },
-		}
 		return (
 			<Transition in={ loader.in } timeout={ duration }>
 				{(state) => (
-					<div className={ style.box } style={ Object.assign({}, defaultStyle, loaderStyles[state]) }>
-						<div className={ style.cover }></div>
-						<Transition in={ !(loader.loader === null) } timeout={ duration }>
-							{(state) => (
-								<div className={ style.content } style={ Object.assign({}, defaultStyle, loaderStyles[state]) }>
-									<h4>00<br /><span>欢迎</span></h4>
-									<div className={ style.gif }></div>
-								</div>
-							)}
-						</Transition>
-					</div>
+					loader.loader ? (
+						<div className={ style.box } style={ Object.assign({}, defaultStyle, loaderStyles[state]) }>
+							<div className={ style.cover }></div>
+							<div className={ style.content }>
+								<h4>00<br /><span>欢迎</span></h4>
+								<div className={ style.gif }></div>
+							</div>
+						</div>
+					) : null
 				)}
 			</Transition>
 		)

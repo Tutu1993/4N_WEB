@@ -47,7 +47,7 @@ const loaderToResetOut = () => {
 	return {
 		type: CHANGELOADER,
 		payload: {
-			modal: null,
+			loader: null,
 			in: false,
 		}
 	}

@@ -30,9 +30,9 @@ class WelcomeContainer extends React.Component {
 		if (top > 5720) {
 			if (loader.loader === null) {
 				loaderToNext()
-				// delay(3000).then(() => {
-				// 	loaderToReset()
-				// })
+				delay(3000).then(() => {
+					loaderToReset()
+				})
 			}
 		}
 	}
