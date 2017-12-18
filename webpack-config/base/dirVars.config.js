@@ -9,6 +9,8 @@ moduleExports.appDir = path.resolve(moduleExports.srcDir, './app') // app 目录
 
 moduleExports.resourceDir = path.resolve(moduleExports.srcDir, './resource') // resource 目录
 
+moduleExports.actionDir = path.resolve(moduleExports.resourceDir, './action') // action 目录
+
 moduleExports.componentDir = path.resolve(moduleExports.resourceDir, './component') // component 目录
 
 moduleExports.cssDir = path.resolve(moduleExports.resourceDir, './css') // css 目录

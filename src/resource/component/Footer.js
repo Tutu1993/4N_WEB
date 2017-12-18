@@ -12,7 +12,7 @@ class FooterContainer extends React.Component {
 		const { modal, toggleModalPresse, toggleModalContact, closeModal } = this.props
 		const links = ['/01-display', '/news', '/collection', '/retailers']
 		const address = ['4N-MVT01/D01', '新闻', '集', '零售商']
-		const listLinkss = links.map((link, index) => {
+		const listLinks = links.map((link, index) => {
 			if (modal.modal === null) {
 				if (history.location.pathname === link) {
 					return <Link to={ link } key={ index } className={ style.active }>{ address[index] }</Link>
@@ -26,7 +26,6 @@ class FooterContainer extends React.Component {
 					return <Link to={ link } key={ index } onClick={ closeModal }>{ address[index] }</Link>
 				}
 			}
-
 		})
 		const modalName = ['文章媒体', '联系']
 		const listModals = modalName.map((value, index) => {
@@ -47,12 +46,19 @@ class FooterContainer extends React.Component {
 		return (
 			<footer className={ style.footer }>
 				<div className={ style.link }>
-					{ listLinkss }
+					{ listLinks }
 					{ listModals }
 				</div>
 			</footer>
 		)
 	}
+}
+
+FooterContainer.propTypes = {
+	modal: PropTypes.object.isRequired,
+	toggleModalPresse: PropTypes.func.isRequired,
+	toggleModalContact: PropTypes.func.isRequired,
+	closeModal: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => {

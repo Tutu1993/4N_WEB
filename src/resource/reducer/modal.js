@@ -1,6 +1,6 @@
 const status = {
 	modal: null,
-	in: false
+	in: false,
 }
 
 export default (state = status, action) => {
