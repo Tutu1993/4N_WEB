@@ -21,7 +21,7 @@ class LoaderContainer extends React.Component {
 			exited: { left: '-100%' }
 		}
 		return (
-			<Transition in={ loader.in } timeout={ duration }>
+			<Transition in={ loader.in } timeout={ 50 }>
 				{(state) => (
 					loader.loader ? (
 						<div className={ style.box } style={ Object.assign({}, defaultStyle, loaderStyles[state]) }>

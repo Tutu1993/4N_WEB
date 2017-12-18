@@ -82,7 +82,7 @@ const loaderToReset = () => {
 			} else if (getState().loader.loader === 'toLast') {
 				dispatch(loaderToLastOut())
 			}
-			delay(1500).then(() => {
+			delay(800).then(() => {
 				dispatch(loaderToResetOut())
 				dispatch(updateState())
 			})

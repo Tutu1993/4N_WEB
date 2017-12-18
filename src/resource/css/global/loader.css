@@ -29,7 +29,7 @@
   height: 100%;
   background-color: #f0f0f0;
   z-index: 999;
-  animation: toTop 0.75s 0.75s ease-in-out forwards;
+  animation: toTop 0.75s ease-in-out forwards;
 }
 .content h4 {
   position: absolute;

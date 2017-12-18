@@ -30,7 +30,7 @@ class ModalContainer extends React.Component {
 			entered:  { opacity: 1 },
 		}
 		return (
-			<Transition in={ modal.in } timeout={ duration }>
+			<Transition in={ modal.in } timeout={ 50 }>
 				{(state) => (
 					modal.modal ? (
 						(modal.modal === 'presse') ? (
