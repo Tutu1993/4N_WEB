@@ -24,6 +24,9 @@ class WelcomeContainer extends React.Component {
 				top: this.state.skrollr.getScrollTop(),
 			})
 		})
+		delay(0).then(() => {
+			this.state.skrollr.setScrollTop(0)
+		})
 		delay(1500).then(() => {
 			this.setState({
 				invite: true,
@@ -48,17 +51,17 @@ class WelcomeContainer extends React.Component {
 				})
 			}
 		}
-		const top = this.state.skrollr.getScrollTop()
-		const { loader, loaderToNext, loaderToReset } = this.props
-		if (top > 5800) {
+		if (this.state.skrollr.getScrollTop() > 5900) {
+			const { loader, loaderToNext, loaderToReset } = this.props
 			if (loader.loader === null) {
-				loaderToNext()
-				// delay(1000).then(() => {
-				// 	history.push('/01-display')
-				// })
-				// delay(3000).then(() => {
-				// 	loaderToReset()
-				// })
+				const date = ['01', '显示']
+				loaderToNext(date)
+				delay(1000).then(() => {
+					history.push('/01-display')
+				})
+				delay(3000).then(() => {
+					loaderToReset(date)
+				})
 			}
 		}
 	}
@@ -106,8 +109,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
 	return {
-		loaderToNext: () => store.dispatch(loaderToNext()),
-		loaderToReset: () => store.dispatch(loaderToReset()),
+		loaderToNext: (...args) => store.dispatch(loaderToNext(...args)),
+		loaderToReset: (...args) => store.dispatch(loaderToReset(...args)),
 	}
 }
 const Welcome = connect(

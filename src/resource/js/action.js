@@ -1,5 +1,5 @@
-import { loaderToCurrent, loaderToNext, loaderToLast, loaderToReset } from 'actionDir/loader.js'
+import { loaderToNext, loaderToReset } from 'actionDir/loader.js'
 import { toggleModalPresse, toggleModalContact, closeModal } from 'actionDir/modal.js'
 
-export { loaderToCurrent, loaderToNext, loaderToLast, loaderToReset }
+export { loaderToNext, loaderToReset }
 export { toggleModalPresse, toggleModalContact, closeModal }

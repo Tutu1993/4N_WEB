@@ -3,61 +3,21 @@ import updateState from 'actionDir/updateState.js'
 
 const CHANGELOADER = 'CHANGELOADER'
 
-const loaderToCurrentIn = () => {
+const loaderToNextIn = date => {
 	return {
 		type: CHANGELOADER,
 		payload: {
-			loader: 'toCurrent',
+			loader: date,
 			in: true,
 		}
 	}
 }
 
-const loaderToCurrentOut = () => {
+const loaderToNextOut = date => {
 	return {
 		type: CHANGELOADER,
 		payload: {
-			loader: 'toCurrent',
-			in: false,
-		}
-	}
-}
-
-const loaderToNextIn = () => {
-	return {
-		type: CHANGELOADER,
-		payload: {
-			loader: 'toNext',
-			in: true,
-		}
-	}
-}
-
-const loaderToNextOut = () => {
-	return {
-		type: CHANGELOADER,
-		payload: {
-			loader: 'toNext',
-			in: false,
-		}
-	}
-}
-
-const loaderToLastIn = () => {
-	return {
-		type: CHANGELOADER,
-		payload: {
-			loader: 'toLast',
-			in: true,
-		}
-	}
-}
-
-const loaderToLastOut = () => {
-	return {
-		type: CHANGELOADER,
-		payload: {
-			loader: 'toLast',
+			loader: date,
 			in: false,
 		}
 	}
@@ -73,47 +33,21 @@ const loaderToResetOut = () => {
 	}
 }
 
-const loaderToCurrent = () => {
+const loaderToNext = date => {
 	return (dispatch, getState) => {
 		dispatch(updateState())
 		if (getState().isFetching) {
-			dispatch(loaderToCurrentIn())
+			dispatch(loaderToNextIn(date))
 		}
 		dispatch(updateState())
     }
 }
 
-const loaderToNext = () => {
+const loaderToReset = date => {
 	return (dispatch, getState) => {
 		dispatch(updateState())
 		if (getState().isFetching) {
-			dispatch(loaderToNextIn())
-		}
-		dispatch(updateState())
-    }
-}
-
-const loaderToLast = () => {
-	return (dispatch, getState) => {
-		dispatch(updateState())
-		if (getState().isFetching) {
-			dispatch(loaderToLastIn())
-		}
-		dispatch(updateState())
-    }
-}
-
-const loaderToReset = () => {
-	return (dispatch, getState) => {
-		dispatch(updateState())
-		if (getState().isFetching) {
-			if (getState().loader.loader === 'toCurrent') {
-				dispatch(loaderToCurrentOut())
-			} else if (getState().loader.loader === 'toNext') {
-				dispatch(loaderToNextOut())
-			} else if (getState().loader.loader === 'toLast') {
-				dispatch(loaderToLastOut())
-			}
+			dispatch(loaderToNextOut(date))
 			delay(800).then(() => {
 				dispatch(loaderToResetOut())
 				dispatch(updateState())
@@ -122,4 +56,4 @@ const loaderToReset = () => {
     }
 }
 
-export { loaderToCurrent, loaderToNext, loaderToLast, loaderToReset }
+export { loaderToNext, loaderToReset }
