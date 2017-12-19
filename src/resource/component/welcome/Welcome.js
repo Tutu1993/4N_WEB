@@ -1,7 +1,8 @@
-import { delay } from 'vendorDir/function.js'
-import { store } from 'jsDir/store.js'
+import { delay, regScroll, removeScrollHandler } from 'vendorDir/function.js'
+import { store, history } from 'jsDir/store.js'
 import { loaderToNext, loaderToReset } from 'jsDir/action.js'
 import { connect } from 'react-redux'
+import Transition from 'react-transition-group/Transition';
 import style from 'cssDir/welcome/welcome.css'
 import NewsList from 'componentDir/welcome/NewsList.js'
 
@@ -9,22 +10,44 @@ class WelcomeContainer extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			skrollr: null
+			skrollr: null,
+			invite: false,
+			top: null,
 		}
-		this.handleWheel = this.handleWheel.bind(this)
+		this.handleScroll = this.handleScroll.bind(this)
 	}
 	componentDidMount() {
 		this.setState({
-			skrollr: skrollr.init()
+			skrollr: skrollr.init(),
+		}, () => {
+			this.setState({
+				top: this.state.skrollr.getScrollTop(),
+			})
 		})
+		delay(1500).then(() => {
+			this.setState({
+				invite: true,
+			})
+		})
+		regScroll(this.handleScroll)
 	}
 	componentWillUnmount() {
 		this.state.skrollr.destroy()
 		this.setState({
-			skrollr: null
+			skrollr: null,
+			invite: false,
+			top: null,
 		})
+		removeScrollHandler()
 	}
-	handleWheel() {
+	handleScroll() {
+		if (this.state.invite) {
+			if (Math.abs(this.state.top - this.state.skrollr.getScrollTop()) > 299) {
+				this.setState({
+					invite: false,
+				})
+			}
+		}
 		const top = this.state.skrollr.getScrollTop()
 		const { loader, loaderToNext, loaderToReset } = this.props
 		if (top > 5720) {
@@ -32,13 +55,18 @@ class WelcomeContainer extends React.Component {
 				loaderToNext()
 				delay(3000).then(() => {
 					loaderToReset()
+					history.push('/01-display')
 				})
 			}
 		}
 	}
 	render() {
+		const inviteStyles = {
+			exiting: { opacity: 1 },
+			exited: { opacity: 0 },
+		}
 		return (
-			<div className={ style.box } onWheel={ this.handleWheel } id="index">
+			<div className={ style.box } onScroll={ this.handleScroll } id="index">
 				<div className={ style.welcome } data-0="top: 0%" data-400="top: -100%">
 					<span>欢迎4N网站</span>
 				</div>
@@ -49,6 +77,15 @@ class WelcomeContainer extends React.Component {
 				<div className={ style.cover } data-4800="top: 100%;" data-5800="top: 0%;" data-6200="top: 0%;">
 					<h1><span>4N</span>-MVT<span>01</span>/D<span>01</span></h1>
 				</div>
+				<Transition in={ this.state.invite } timeout={ 50 }>
+					{(state) => (
+						<div className={ style.invite } style={ Object.assign({}, inviteStyles[state]) }>
+							<h4>SCROLL</h4>
+							<h5>4N-MVT01/D01</h5>
+							<div className={ style.arrow }></div>
+						</div>
+					)}
+				</Transition>
 			</div>
 		)
 	}

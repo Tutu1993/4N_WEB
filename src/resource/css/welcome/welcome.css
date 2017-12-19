@@ -8,6 +8,7 @@
   top: 0;
   left: 0;
   z-index: 100;
+  animation: toTop 1s ease-in-out forwards;
 }
 .welcome span {
   display: block;
@@ -32,6 +33,7 @@
   left: 0;
   background: url("../../imgs/welcome/4N-welcome.jpg") no-repeat center center;
   z-index: 99;
+  animation: toRight 1.25s ease-in-out forwards;
 }
 .list_box {
   position: fixed;
@@ -96,4 +98,150 @@
 }
 .cover h1 span {
   font-family: tbold, arial, sans-serif;
+}
+.invite {
+  position: fixed;
+  left: 50%;
+  bottom: 94px;
+  width: 84px;
+  height: 50px;
+  color: #f6f6f6;
+  text-align: center;
+  z-index: 990;
+  transform: translateX(-50%);
+  transition: opacity 0.95s ease-in-out;
+}
+.invite h4,
+.invite h5 {
+  width: 100%;
+  font-weight: 400;
+  font-family: treg, arial, sans-serif;
+  margin: 0;
+}
+.invite h4 {
+  font-size: 13px;
+}
+.invite h5 {
+  font-size: 11px;
+  padding-bottom: 3px;
+}
+.arrow {
+  position: relative;
+}
+.arrow:before,
+.arrow:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #fbb034;
+  transform: translateX(-50%);
+}
+.arrow:before {
+  top: 0;
+  animation: toggleOpacity 1s ease-in-out infinite;
+}
+.arrow:after {
+  opacity: 0.5;
+  top: 9px;
+  animation: toggleOpacity 1s 0.5s ease-in-out infinite;
+}
+@-moz-keyframes toTop {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@-webkit-keyframes toTop {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@-o-keyframes toTop {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@keyframes toTop {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@-moz-keyframes toRight {
+  from {
+    margin-left: -850px;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+@-webkit-keyframes toRight {
+  from {
+    margin-left: -850px;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+@-o-keyframes toRight {
+  from {
+    margin-left: -850px;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+@keyframes toRight {
+  from {
+    margin-left: -850px;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+@-moz-keyframes toggleOpacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+@-webkit-keyframes toggleOpacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+@-o-keyframes toggleOpacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+@keyframes toggleOpacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
 }

@@ -27,7 +27,7 @@ class LoaderContainer extends React.Component {
 						<div className={ style.box } style={ Object.assign({}, defaultStyle, loaderStyles[state]) }>
 							<div className={ style.cover }></div>
 							<div className={ style.content }>
-								<h4>00<br /><span>欢迎</span></h4>
+								<h4>01<br /><span>显示</span></h4>
 								<div className={ style.gif }></div>
 							</div>
 						</div>
