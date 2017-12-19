@@ -50,15 +50,15 @@ class WelcomeContainer extends React.Component {
 		}
 		const top = this.state.skrollr.getScrollTop()
 		const { loader, loaderToNext, loaderToReset } = this.props
-		if (top > 5720) {
+		if (top > 5800) {
 			if (loader.loader === null) {
 				loaderToNext()
-				delay(1000).then(() => {
-					history.push('/01-display')
-				})
-				delay(3000).then(() => {
-					loaderToReset()
-				})
+				// delay(1000).then(() => {
+				// 	history.push('/01-display')
+				// })
+				// delay(3000).then(() => {
+				// 	loaderToReset()
+				// })
 			}
 		}
 	}
