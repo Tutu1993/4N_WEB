@@ -53,9 +53,11 @@ class WelcomeContainer extends React.Component {
 		if (top > 5720) {
 			if (loader.loader === null) {
 				loaderToNext()
+				delay(1000).then(() => {
+					history.push('/01-display')
+				})
 				delay(3000).then(() => {
 					loaderToReset()
-					history.push('/01-display')
 				})
 			}
 		}

@@ -9,10 +9,8 @@ class LoaderContainer extends React.Component {
 	}
 	render() {
 		const { loader } = this.props
-		const duration = 750
 		const defaultStyle = {
 			display: loader.loader ? 'block' : 'none',
-			transition: `all ${duration}ms ease-in-out`,
 		}
 		const loaderStyles = {
 			entering: { top: '100%' },

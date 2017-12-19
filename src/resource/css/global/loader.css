@@ -7,6 +7,7 @@
   width: 100%;
   height: 100%;
   z-index: 999;
+  transition: all 0.75s ease-in-out;
 }
 .cover {
   position: absolute;
@@ -29,7 +30,7 @@
   height: 100%;
   background-color: #f0f0f0;
   z-index: 999;
-  animation: toTop 0.75s ease-in-out forwards;
+  animation: toTop 0.8s ease-in-out forwards;
 }
 .content h4 {
   position: absolute;
