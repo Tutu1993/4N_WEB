@@ -2,6 +2,7 @@ import { delay, addScrollHandler, removeScrollHandler } from 'vendorDir/function
 import { store, history } from 'jsDir/store.js'
 import { loaderToNext, loaderToReset, updateLastPage } from 'jsDir/action.js'
 import { connect } from 'react-redux'
+import style from 'cssDir/display/display.css'
 
 class DisplayContainer extends React.Component {
 	constructor(props) {
@@ -22,6 +23,7 @@ class DisplayContainer extends React.Component {
 					console.log('F5')
 				}
 			}
+			this.state.skrollr.setScrollTop(400)
 			addScrollHandler(this.handleScroll)
 		})
 	}
@@ -34,12 +36,26 @@ class DisplayContainer extends React.Component {
 		this.props.updateLastPage('01-display')
 	}
 	handleScroll() {
+		if (this.state.skrollr.getScrollTop() < 100) {
+			const { loader, loaderToNext, loaderToReset } = this.props
+			if (loader.loader === null) {
+				const date = ['00', '欢迎']
+				loaderToNext(date)
+				delay(3000).then(() => {
+					loaderToReset(date)
+					history.push('/')
+				})
+			}
+		}
 		console.log(this.state.skrollr.getScrollTop())
 	}
 	render() {
 		return (
-			<div>
-				<div>Hello World</div>
+			<div className={ style.box }>
+				<div className={ style.functionality }>
+					<div calssName={ style.f_box }></div>
+					<div className={ style.f_cover } data-0="opacity: 1;" data-300="opacity: 0; display: block;" data-350="display: none"></div>
+				</div>
 			</div>
 		)
 	}
