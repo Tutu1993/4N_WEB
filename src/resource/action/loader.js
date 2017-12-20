@@ -1,11 +1,11 @@
 import { delay } from 'vendorDir/function.js'
-import updateState from 'actionDir/isFetching.js'
+import updateIsFetching from 'actionDir/isFetching.js'
 
-const CHANGELOADER = 'CHANGELOADER'
+const LOADER_CHANGE = 'LOADER_CHANGE'
 
 const loaderToNextIn = date => {
 	return {
-		type: CHANGELOADER,
+		type: LOADER_CHANGE,
 		payload: {
 			loader: date,
 			in: true,
@@ -15,7 +15,7 @@ const loaderToNextIn = date => {
 
 const loaderToNextOut = date => {
 	return {
-		type: CHANGELOADER,
+		type: LOADER_CHANGE,
 		payload: {
 			loader: date,
 			in: false,
@@ -25,7 +25,7 @@ const loaderToNextOut = date => {
 
 const loaderToResetOut = () => {
 	return {
-		type: CHANGELOADER,
+		type: LOADER_CHANGE,
 		payload: {
 			loader: null,
 			in: false,
@@ -35,22 +35,22 @@ const loaderToResetOut = () => {
 
 const loaderToNext = date => {
 	return (dispatch, getState) => {
-		dispatch(updateState())
+		dispatch(updateIsFetching())
 		if (getState().isFetching) {
 			dispatch(loaderToNextIn(date))
 		}
-		dispatch(updateState())
+		dispatch(updateIsFetching())
     }
 }
 
 const loaderToReset = date => {
 	return (dispatch, getState) => {
-		dispatch(updateState())
+		dispatch(updateIsFetching())
 		if (getState().isFetching) {
 			dispatch(loaderToNextOut(date))
 			delay(800).then(() => {
 				dispatch(loaderToResetOut())
-				dispatch(updateState())
+				dispatch(updateIsFetching())
 			})
 		}
     }

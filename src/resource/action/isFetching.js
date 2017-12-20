@@ -1,9 +1,9 @@
-const CHANGESTATE = 'CHANGESTATE'
+const ISFETCHING_CHANGE = 'ISFETCHING_CHANGE'
 
-const updateState = () => {
+const updateIsFetching = () => {
 	return {
-		type: CHANGESTATE,
+		type: ISFETCHING_CHANGE,
 	}
 }
 
-export default updateState
+export default updateIsFetching

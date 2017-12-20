@@ -1,11 +1,11 @@
 import { delay } from 'vendorDir/function.js'
-import updateState from 'actionDir/isFetching.js'
+import updateIsFetching from 'actionDir/isFetching.js'
 
-const CHANGEMODAL = 'CHANGEMODAL'
+const MODAL_CHANGE = 'MODAL_CHANGE'
 
 const modalToPresseIn = () => {
 	return {
-		type: CHANGEMODAL,
+		type: MODAL_CHANGE,
 		payload: {
 			modal: 'presse',
 			in: true,
@@ -15,7 +15,7 @@ const modalToPresseIn = () => {
 
 const modalToPresseOut = () => {
 	return {
-		type: CHANGEMODAL,
+		type: MODAL_CHANGE,
 		payload: {
 			modal: 'presse',
 			in: false,
@@ -25,7 +25,7 @@ const modalToPresseOut = () => {
 
 const modalToContactIn = () => {
 	return {
-		type: CHANGEMODAL,
+		type: MODAL_CHANGE,
 		payload: {
 			modal: 'contact',
 			in: true,
@@ -35,7 +35,7 @@ const modalToContactIn = () => {
 
 const modalToContactOut = () => {
 	return {
-		type: CHANGEMODAL,
+		type: MODAL_CHANGE,
 		payload: {
 			modal: 'contact',
 			in: false,
@@ -45,7 +45,7 @@ const modalToContactOut = () => {
 
 const modalToResetOut = () => {
 	return {
-		type: CHANGEMODAL,
+		type: MODAL_CHANGE,
 		payload: {
 			modal: null,
 			in: false,
@@ -55,23 +55,23 @@ const modalToResetOut = () => {
 
 const toggleModalPresse = () => {
     return (dispatch, getState) => {
-		dispatch(updateState())
+		dispatch(updateIsFetching())
 		if (getState().isFetching) {
 			if (getState().modal.modal === null) {
 				dispatch(modalToPresseIn())
-				dispatch(updateState())
+				dispatch(updateIsFetching())
 			} else if (getState().modal.modal === 'presse') {
 				dispatch(modalToPresseOut())
 				delay(300).then(() => {
 					dispatch(modalToResetOut())
-					dispatch(updateState())
+					dispatch(updateIsFetching())
 				})
 			} else if (getState().modal.modal === 'contact') {
 				dispatch(modalToContactOut())
 				delay(300).then(() => {
 					dispatch(modalToResetOut())
 					dispatch(modalToPresseIn())
-					dispatch(updateState())
+					dispatch(updateIsFetching())
 				})
 			}
 		}
@@ -80,23 +80,23 @@ const toggleModalPresse = () => {
 
 const toggleModalContact = () => {
     return (dispatch, getState) => {
-		dispatch(updateState())
+		dispatch(updateIsFetching())
 		if (getState().isFetching) {
 			if (getState().modal.modal === null) {
 				dispatch(modalToContactIn())
-				dispatch(updateState())
+				dispatch(updateIsFetching())
 			} else if (getState().modal.modal === 'presse') {
 				dispatch(modalToPresseOut())
 				delay(300).then(() => {
 					dispatch(modalToResetOut())
 					dispatch(modalToContactIn())
-					dispatch(updateState())
+					dispatch(updateIsFetching())
 				})
 			} else if (getState().modal.modal === 'contact') {
 				dispatch(modalToContactOut())
 				delay(300).then(() => {
 					dispatch(modalToResetOut())
-					dispatch(updateState())
+					dispatch(updateIsFetching())
 				})
 			}
 		}
@@ -105,7 +105,7 @@ const toggleModalContact = () => {
 
 const closeModal = () => {
     return (dispatch, getState) => {
-		dispatch(updateState())
+		dispatch(updateIsFetching())
 		if (getState().isFetching) {
 			if (getState().modal.modal === 'presse') {
 				dispatch(modalToPresseOut())
@@ -114,7 +114,7 @@ const closeModal = () => {
 			}
 			delay(300).then(() => {
 				dispatch(modalToResetOut())
-				dispatch(updateState())
+				dispatch(updateIsFetching())
 			})
 		}
     }

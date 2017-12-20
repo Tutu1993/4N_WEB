@@ -5,7 +5,7 @@ const status = {
 
 export default (state = status, action) => {
 	switch (action.type) {
-		case 'CHANGEMODAL':
+		case 'MODAL_CHANGE':
 			return Object.assign({}, {
 				modal: action.payload.modal,
 				in: action.payload.in,

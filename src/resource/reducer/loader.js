@@ -5,7 +5,7 @@ const status = {
 
 export default (state = status, action) => {
 	switch (action.type) {
-		case 'CHANGELOADER':
+		case 'LOADER_CHANGE':
 			return Object.assign({}, {
 				loader: action.payload.loader,
 				in: action.payload.in,

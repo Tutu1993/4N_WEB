@@ -1,6 +1,6 @@
 export default (state = '', action) => {
 	switch (action.type) {
-		case 'CHANGELASTPAGE':
+		case 'LASTPAGE_CHANGE':
 			return action.payload.lastPage
 		default:
 			return state
