@@ -54,7 +54,15 @@ class WelcomeContainer extends React.Component {
 			}
 		}
 		if (this.state.skrollr.getScrollTop() > 5900) {
-			history.push('/01-display')
+			const { loader, loaderToNext, loaderToReset } = this.props
+			if (loader.loader === null) {
+				const date = ['01', '欢迎']
+				loaderToNext(date)
+				delay(3000).then(() => {
+					loaderToReset(date)
+					history.push('/01-display')
+				})
+			}
 		}
 	}
 	render() {
