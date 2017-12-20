@@ -1,4 +1,4 @@
-import { delay, regScroll, removeScrollHandler } from 'vendorDir/function.js'
+import { delay, addScrollHandler, removeScrollHandler } from 'vendorDir/function.js'
 import { store, history } from 'jsDir/store.js'
 import { loaderToNext, loaderToReset, updateLastPage } from 'jsDir/action.js'
 import { connect } from 'react-redux'
@@ -27,12 +27,12 @@ class WelcomeContainer extends React.Component {
 		})
 		delay(0).then(() => {
 			const { lastPage } = this.props
-			if (lastPage !== null) {
+			if (lastPage !== '') {
 				if (lastPage !== 'welcome') {
 					this.state.skrollr.setScrollTop(0)
 				}
 			}
-			regScroll(this.handleScroll)
+			addScrollHandler(this.handleScroll)
 		})
 	}
 	componentWillUnmount() {
@@ -42,7 +42,7 @@ class WelcomeContainer extends React.Component {
 			invite: false,
 			top: null,
 		})
-		removeScrollHandler()
+		removeScrollHandler(this.handleScroll)
 		this.props.updateLastPage('welcome')
 	}
 	handleScroll() {
@@ -97,6 +97,7 @@ class WelcomeContainer extends React.Component {
 }
 
 WelcomeContainer.propTypes = {
+	lastPage: PropTypes.string.isRequired,
 	loader: PropTypes.object.isRequired,
 	loaderToNext: PropTypes.func.isRequired,
 	loaderToReset: PropTypes.func.isRequired,

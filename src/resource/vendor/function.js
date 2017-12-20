@@ -4,21 +4,13 @@ function delay(ms) {
 	});
 }
 
-function regScroll(myHandler) {
-	if (window.onscroll === null) {
-		window.onscroll = myHandler
-	} else if (typeof window.onscroll === 'function') {
-		var oldHandler = window.onscroll;
-		window.onscroll = function () {
-			myHandler();
-			oldHandler();
-		}
-	}
+function addScrollHandler(myHandler) {
+	window.addEventListener('scroll', myHandler)
 }
 
-function removeScrollHandler(){
-  window.onscroll=''
+function removeScrollHandler(myHandler) {
+	window.removeEventListener('scroll', myHandler)
 }
 
 export { delay }
-export { regScroll, removeScrollHandler }
+export { addScrollHandler, removeScrollHandler }
