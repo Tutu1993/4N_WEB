@@ -1,49 +1,56 @@
-import { delay, regScroll, removeScrollHandler } from 'vendorDir/function.js'
+import { delay, addScrollHandler, removeScrollHandler } from 'vendorDir/function.js'
 import { store, history } from 'jsDir/store.js'
 import { loaderToNext, loaderToReset, updateLastPage } from 'jsDir/action.js'
 import { connect } from 'react-redux'
-import Transition from 'react-transition-group/Transition';
 
-class Display01Container extends React.Component {
+class DisplayContainer extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			skrollr: null
+			skrollr: null,
 		}
+		this.handleScroll = this.handleScroll.bind(this)
 	}
 	componentDidMount() {
 		this.setState({
 			skrollr: skrollr.init(),
 		})
-		// delay(0).then(() => {
-		// 	const { lastPage, loader, loaderToNext, loaderToReset } = this.props
-		// 	if (lastPage !== null) {
-		// 		if (loader.loader === null) {
-		// 			const date = ['01', '欢迎']
-		// 			loaderToNext(date)
-		// 			this.state.skrollr.setScrollTop(0)
-		// 			delay(3000).then(() => {
-		// 				loaderToReset(date)
-		// 			})
-		// 		}
-		// 	}
-		// 	regScroll(this.handleScroll)
-		// })
+		delay(0).then(() => {
+			const { lastPage } = this.props
+			if (lastPage !== '') {
+				if (lastPage !== '01-display') {
+					console.log('F5')
+				}
+			}
+			addScrollHandler(this.handleScroll)
+		})
 	}
 	componentWillUnmount() {
 		this.state.skrollr.destroy()
 		this.setState({
-			skrollr: null
+			skrollr: null,
 		})
+		removeScrollHandler(this.handleScroll)
 		this.props.updateLastPage('01-display')
+	}
+	handleScroll() {
+		console.log(this.state.skrollr.getScrollTop())
 	}
 	render() {
 		return (
 			<div>
-				Hello World!
+				<div>Hello World</div>
 			</div>
 		)
 	}
+}
+
+DisplayContainer.propTypes = {
+	lastPage: PropTypes.string.isRequired,
+	loader: PropTypes.object.isRequired,
+	loaderToNext: PropTypes.func.isRequired,
+	loaderToReset: PropTypes.func.isRequired,
+	updateLastPage: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => {
@@ -59,9 +66,9 @@ const mapDispatchToProps = dispatch => {
 		updateLastPage: (...args) => store.dispatch(updateLastPage(...args)),
 	}
 }
-const Display01 = connect(
+const Display = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Display01Container)
+)(DisplayContainer)
 
-export default Display01
+export default Display

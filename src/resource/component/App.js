@@ -4,10 +4,10 @@ import { ConnectedRouter } from 'react-router-redux'
 import { store, history } from 'jsDir/store.js'
 import Nav from 'componentDir/Nav.js'
 import Footer from 'componentDir/Footer.js'
-import Loader from 'componentDir/loader/Loader.js'
+import Loader from 'componentDir/Loader.js'
 import Modal from 'componentDir/modal/Modal.js'
 import Welcome from 'componentDir/welcome/Welcome.js'
-import Display01 from 'componentDir/Display01.js'
+import Display from 'componentDir/Display.js'
 
 class App extends React.Component {
 	render() {
@@ -18,7 +18,7 @@ class App extends React.Component {
 						<Nav />
 						<Switch>
 							<Route exact path="/" component={ Welcome }/>
-							<Route exact path="/01-display" component={ Display01 }/>
+							<Route exact path="/01-display" component={ Display }/>
 						</Switch>
 						<Footer />
 						<Loader />
