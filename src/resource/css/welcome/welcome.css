@@ -109,7 +109,7 @@
   text-align: center;
   z-index: 990;
   transform: translateX(-50%);
-  transition: opacity 0.95s ease-in-out;
+  transition: opacity 0.95s 1.5s ease-in-out;
 }
 .invite h4,
 .invite h5 {

@@ -15,6 +15,7 @@ class WelcomeContainer extends React.Component {
 			top: null,
 		}
 		this.handleScroll = this.handleScroll.bind(this)
+		this.toNextPage = this.toNextPage.bind(this)
 	}
 	componentDidMount() {
 		this.setState({
@@ -22,19 +23,13 @@ class WelcomeContainer extends React.Component {
 		}, () => {
 			this.setState({
 				top: this.state.skrollr.getScrollTop(),
-			})
-		})
-		delay(0).then(() => {
-			this.state.skrollr.setScrollTop(0)
-		})
-		delay(1500).then(() => {
-			this.setState({
 				invite: true,
 			})
 		})
 		regScroll(this.handleScroll)
 	}
 	componentWillUnmount() {
+		console.log('destroy')
 		this.state.skrollr.destroy()
 		this.setState({
 			skrollr: null,
@@ -52,26 +47,29 @@ class WelcomeContainer extends React.Component {
 			}
 		}
 		if (this.state.skrollr.getScrollTop() > 5900) {
-			const { loader, loaderToNext, loaderToReset } = this.props
-			if (loader.loader === null) {
-				const date = ['01', '显示']
-				loaderToNext(date)
-				delay(1000).then(() => {
-					history.push('/01-display')
-				})
-				delay(3000).then(() => {
-					loaderToReset(date)
-				})
-			}
+			this.toNextPage()
+		}
+	}
+	toNextPage() {
+		const { loader, loaderToNext, loaderToReset } = this.props
+		if (loader.loader === null) {
+			const date = ['01', '显示']
+			loaderToNext(date)
+			delay(1000).then(() => {
+				history.push('/01-display')
+			})
+			delay(3000).then(() => {
+				loaderToReset(date)
+			})
 		}
 	}
 	render() {
 		const inviteStyles = {
 			exiting: { opacity: 1 },
-			exited: { opacity: 0 },
+			exited: { opacity: 0, transition: `opacity .95s ease-in-out` },
 		}
 		return (
-			<div className={ style.box } onScroll={ this.handleScroll } id="index">
+			<div className={ style.box }>
 				<div className={ style.welcome } data-0="top: 0%" data-400="top: -100%">
 					<span>欢迎4N网站</span>
 				</div>

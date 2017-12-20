@@ -1,4 +1,4 @@
-import style from 'cssDir/global/nav.css'
+import { store, history } from 'jsDir/store.js'
 
 class Display01 extends React.Component {
 	constructor(props) {
