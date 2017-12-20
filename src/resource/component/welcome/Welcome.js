@@ -1,6 +1,6 @@
 import { delay, regScroll, removeScrollHandler } from 'vendorDir/function.js'
 import { store, history } from 'jsDir/store.js'
-import { loaderToNext, loaderToReset } from 'jsDir/action.js'
+import { loaderToNext, loaderToReset, updateLastPage } from 'jsDir/action.js'
 import { connect } from 'react-redux'
 import Transition from 'react-transition-group/Transition';
 import style from 'cssDir/welcome/welcome.css'
@@ -15,7 +15,6 @@ class WelcomeContainer extends React.Component {
 			top: null,
 		}
 		this.handleScroll = this.handleScroll.bind(this)
-		this.toNextPage = this.toNextPage.bind(this)
 	}
 	componentDidMount() {
 		this.setState({
@@ -26,10 +25,17 @@ class WelcomeContainer extends React.Component {
 				invite: true,
 			})
 		})
-		regScroll(this.handleScroll)
+		delay(0).then(() => {
+			const { lastPage } = this.props
+			if (lastPage !== null) {
+				if (lastPage !== 'welcome') {
+					this.state.skrollr.setScrollTop(0)
+				}
+			}
+			regScroll(this.handleScroll)
+		})
 	}
 	componentWillUnmount() {
-		console.log('destroy')
 		this.state.skrollr.destroy()
 		this.setState({
 			skrollr: null,
@@ -37,6 +43,7 @@ class WelcomeContainer extends React.Component {
 			top: null,
 		})
 		removeScrollHandler()
+		this.props.updateLastPage('welcome')
 	}
 	handleScroll() {
 		if (this.state.invite) {
@@ -47,20 +54,7 @@ class WelcomeContainer extends React.Component {
 			}
 		}
 		if (this.state.skrollr.getScrollTop() > 5900) {
-			this.toNextPage()
-		}
-	}
-	toNextPage() {
-		const { loader, loaderToNext, loaderToReset } = this.props
-		if (loader.loader === null) {
-			const date = ['01', '显示']
-			loaderToNext(date)
-			delay(1000).then(() => {
-				history.push('/01-display')
-			})
-			delay(3000).then(() => {
-				loaderToReset(date)
-			})
+			history.push('/01-display')
 		}
 	}
 	render() {
@@ -98,10 +92,12 @@ WelcomeContainer.propTypes = {
 	loader: PropTypes.object.isRequired,
 	loaderToNext: PropTypes.func.isRequired,
 	loaderToReset: PropTypes.func.isRequired,
+	updateLastPage: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => {
 	return {
+		lastPage: state.lastPage,
 		loader: state.loader,
 	}
 }
@@ -109,6 +105,7 @@ const mapDispatchToProps = dispatch => {
 	return {
 		loaderToNext: (...args) => store.dispatch(loaderToNext(...args)),
 		loaderToReset: (...args) => store.dispatch(loaderToReset(...args)),
+		updateLastPage: (...args) => store.dispatch(updateLastPage(...args)),
 	}
 }
 const Welcome = connect(

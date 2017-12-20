@@ -1,5 +1,5 @@
 import { delay } from 'vendorDir/function.js'
-import updateState from 'actionDir/updateState.js'
+import updateState from 'actionDir/isFetching.js'
 
 const CHANGEMODAL = 'CHANGEMODAL'
 
