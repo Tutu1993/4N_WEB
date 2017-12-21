@@ -23,7 +23,7 @@ class DisplayContainer extends React.Component {
 					console.log('F5')
 				}
 			}
-			this.state.skrollr.setScrollTop(400)
+			// this.state.skrollr.setScrollTop(400)
 			addScrollHandler(this.handleScroll)
 		})
 	}
@@ -65,7 +65,7 @@ class DisplayContainer extends React.Component {
 					</div>
 					<div className={ style.f_img } data-400="background-position-y: 0px;" data-424="background-position-y: 0px;" data-425="background-position-y: -365px;" data-449="background-position-y: -365px;" data-450="background-position-y: -730px;" data-474="background-position-y: -730px;" data-475="background-position-y: -1095px;" data-499="background-position-y: -1095px;" data-500="background-position-y: -1460px;" data-524="background-position-y: -1460px;" data-525="background-position-y: -1825px;" data-549="background-position-y: -1825px;" data-550="background-position-y: -2190px;" data-574="background-position-y: -2190px;" data-575="background-position-y: -2555px;" data-599="background-position-y: -2555px;" data-600="background-position-y: -2920px;" data-624="background-position-y: -2920px;" data-625="background-position-y: -3285px;" data-649="background-position-y: -3285px;" data-650="background-position-y: -3650px;" data-674="background-position-y: -3650px;" data-675="background-position-y: -4015px;" data-699="background-position-y: -4015px;" data-700="background-position-y: -4380px;" data-724="background-position-y: -4380px;" data-725="background-position-y: -4745px;" data-749="background-position-y: -4745px;" data-750="background-position-y: -5110px;" data-774="background-position-y: -5110px;" data-775="background-position-y: -5475px;" data-799="background-position-y: -5475px;" data-800="background-position-y: -5840px;" data-824="background-position-y: -5840px;" data-825="background-position-y: -6205px;" data-849="background-position-y: -6205px;" data-850="background-position-y: -6570px;" data-874="background-position-y: -6570px;" data-875="background-position-y: -6935px;" data-899="background-position-y: -6935px;" data-900="background-position-y: -7300px;" data-924="background-position-y: -7300px;"></div>
 				</div>
-				<div className={ style.mechanism } data-1124="left: 100%;" data-1924="left: 0%;">
+				<div className={ style.mechanism } data-1124="left: 100%;" data-1924="left: 0%;" data-5324="left: 0%;" data-6124="left: -50%;">
 					<div className={ style.text_box }  data-1124="padding-left: 100%;" data-1924="padding-left: 0%;">
 						<h2>机械机构</h2>
 						<div className={ style.text_word }  data-1124="padding-left: 250%;" data-1924="padding-left: 0%;">
@@ -76,7 +76,70 @@ class DisplayContainer extends React.Component {
 							</div>
 						</div>
 					</div>
+					<div className={ style.m_img } data-1124="padding-left: 300%;" data-1924="padding-left: 0%;">
+						<div data-2124="top: -670px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/20.png')} />
+						</div>
+						<div data-2124="top: 860px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/19.png')} />
+						</div>
+						<div data-2124="top: 770px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/18.png')} />
+						</div>
+						<div data-2124="top: 680px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/17.png')} />
+						</div>
+						<div data-2124="top: 590px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/16.png')} />
+						</div>
+						<div data-2124="top: 500px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/15.png')} />
+						</div>
+						<div data-2124="top: 410px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/14.png')} />
+						</div>
+						<div data-2124="top: 320px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/13.png')} />
+						</div>
+						<div data-2124="top: 230px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/12.png')} />
+						</div>
+						<div data-2124="top: 140px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/11.png')} />
+						</div>
+						<div data-2124="top: 50px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/10.png')} />
+						</div>
+						<div data-2124="top: -40px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/09.png')} />
+						</div>
+						<div data-2124="top: -130px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/08.png')} />
+						</div>
+						<div data-2124="top: -220px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/07.png')} />
+						</div>
+						<div data-2124="top: -310px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/06.png')} />
+						</div>
+						<div data-2124="top: -400px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/05.png')} />
+						</div>
+						<div data-2124="top: -490px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/04.png')} />
+						</div>
+						<div data-2124="top: -580px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/03.png')} />
+						</div>
+						<div data-2124="top: -670px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/02.png')} />
+						</div>
+						<div data-2124="top: -760px;" data-5124="top: 0px;">
+							<img src={require('imgsDir/display/01.png')} />
+						</div>
+					</div>
 				</div>
+				<div className={ style.specific } data-5324="left: 100%;" data-6124="left: 0%;"></div>
 				<div className={ style.cover } data-0="opacity: .8;" data-400="opacity: 0;"></div>
 			</div>
 		)
