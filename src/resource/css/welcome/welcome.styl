@@ -40,7 +40,6 @@
 	padding 37px
 	transform translateY(-50%)
 	z-index 100
-	animation toLeft .1s ease-in-out forwards
 	&:after
 		content ''
 		display block
@@ -136,11 +135,6 @@
 @keyframes toRight
 	from
 		margin-left -1700px
-	to
-		margin-left 0
-@keyframes toLeft
-	from
-		margin-left 1700px
 	to
 		margin-left 0
 @keyframes toggleOpacity

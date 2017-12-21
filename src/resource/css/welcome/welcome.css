@@ -44,7 +44,6 @@
   padding: 37px;
   transform: translateY(-50%);
   z-index: 100;
-  animation: toLeft 0.1s ease-in-out forwards;
 }
 .list_box:after {
   content: '';
@@ -209,38 +208,6 @@
 @keyframes toRight {
   from {
     margin-left: -1700px;
-  }
-  to {
-    margin-left: 0;
-  }
-}
-@-moz-keyframes toLeft {
-  from {
-    margin-left: 1700px;
-  }
-  to {
-    margin-left: 0;
-  }
-}
-@-webkit-keyframes toLeft {
-  from {
-    margin-left: 1700px;
-  }
-  to {
-    margin-left: 0;
-  }
-}
-@-o-keyframes toLeft {
-  from {
-    margin-left: 1700px;
-  }
-  to {
-    margin-left: 0;
-  }
-}
-@keyframes toLeft {
-  from {
-    margin-left: 1700px;
   }
   to {
     margin-left: 0;
