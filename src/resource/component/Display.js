@@ -139,7 +139,18 @@ class DisplayContainer extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div className={ style.specific } data-5324="left: 100%;" data-6124="left: 0%;"></div>
+				<div className={ style.specific } data-5324="left: 100%;" data-6124="left: 0%;">
+					<div className={ style.s_box } data-5524="left: 413px;" data-10324="left: -2800px;">
+						<div className={ style.s_title }>
+							<h2>具体技术特点</h2>
+							<div className={ style.logo }>
+								<a href="https://twitter.com/4N_PARIS" target="_blank"></a>
+								<a href="https://www.facebook.com/4Nwatches" target="_blank"></a>
+							</div>
+						</div>
+						<div className={ style.s_top_line }></div>
+					</div>
+				</div>
 				<div className={ style.cover } data-0="opacity: .8;" data-400="opacity: 0;"></div>
 			</div>
 		)
