@@ -23,7 +23,7 @@ class DisplayContainer extends React.Component {
 					console.log('F5')
 				}
 			}
-			// this.state.skrollr.setScrollTop(400)
+			this.state.skrollr.setScrollTop(400)
 			addScrollHandler(this.handleScroll)
 		})
 	}
