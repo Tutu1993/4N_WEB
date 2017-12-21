@@ -37,17 +37,27 @@ class DisplayContainer extends React.Component {
 	}
 	handleScroll() {
 		if (this.state.skrollr.getScrollTop() < 100) {
-			// const { loader, loaderToNext, loaderToReset } = this.props
-			// if (loader.loader === null) {
-			// 	const date = ['00', '欢迎']
-			// 	loaderToNext(date)
-			// 	delay(3000).then(() => {
-			// 		loaderToReset(date)
-			// 		history.push('/')
-			// 	})
-			// }
+			const { loader, loaderToNext, loaderToReset } = this.props
+			if (loader.loader === null) {
+				const date = ['00', '欢迎']
+				loaderToNext(date)
+				delay(3000).then(() => {
+					loaderToReset(date)
+					// history.push('/')
+				})
+			}
 		}
-		console.log(this.state.skrollr.getScrollTop())
+		if (this.state.skrollr.getScrollTop() > 13214) {
+			const { loader, loaderToNext, loaderToReset } = this.props
+			if (loader.loader === null) {
+				const date = ['02', '动画']
+				loaderToNext(date)
+				delay(3000).then(() => {
+					loaderToReset(date)
+					// history.push('/')
+				})
+			}
+		}
 	}
 	render() {
 		return (
@@ -78,68 +88,68 @@ class DisplayContainer extends React.Component {
 					</div>
 					<div className={ style.m_img } data-1124="padding-left: 300%;" data-1924="padding-left: 0%;">
 						<div data-2124="top: -670px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/20.png')} />
+							<img src={ require('imgsDir/display/mechanism-20.png') } />
 						</div>
 						<div data-2124="top: 860px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/19.png')} />
+							<img src={ require('imgsDir/display/mechanism-19.png') } />
 						</div>
 						<div data-2124="top: 770px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/18.png')} />
+							<img src={ require('imgsDir/display/mechanism-18.png') } />
 						</div>
 						<div data-2124="top: 680px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/17.png')} />
+							<img src={ require('imgsDir/display/mechanism-17.png') } />
 						</div>
 						<div data-2124="top: 590px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/16.png')} />
+							<img src={ require('imgsDir/display/mechanism-16.png') } />
 						</div>
 						<div data-2124="top: 500px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/15.png')} />
+							<img src={ require('imgsDir/display/mechanism-15.png') } />
 						</div>
 						<div data-2124="top: 410px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/14.png')} />
+							<img src={ require('imgsDir/display/mechanism-14.png') } />
 						</div>
 						<div data-2124="top: 320px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/13.png')} />
+							<img src={ require('imgsDir/display/mechanism-13.png') } />
 						</div>
 						<div data-2124="top: 230px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/12.png')} />
+							<img src={ require('imgsDir/display/mechanism-12.png') } />
 						</div>
 						<div data-2124="top: 140px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/11.png')} />
+							<img src={ require('imgsDir/display/mechanism-11.png') } />
 						</div>
 						<div data-2124="top: 50px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/10.png')} />
+							<img src={ require('imgsDir/display/mechanism-10.png') } />
 						</div>
 						<div data-2124="top: -40px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/09.png')} />
+							<img src={ require('imgsDir/display/mechanism-09.png') } />
 						</div>
 						<div data-2124="top: -130px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/08.png')} />
+							<img src={ require('imgsDir/display/mechanism-08.png') } />
 						</div>
 						<div data-2124="top: -220px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/07.png')} />
+							<img src={ require('imgsDir/display/mechanism-07.png') } />
 						</div>
 						<div data-2124="top: -310px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/06.png')} />
+							<img src={ require('imgsDir/display/mechanism-06.png') } />
 						</div>
 						<div data-2124="top: -400px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/05.png')} />
+							<img src={ require('imgsDir/display/mechanism-05.png') } />
 						</div>
 						<div data-2124="top: -490px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/04.png')} />
+							<img src={ require('imgsDir/display/mechanism-04.png') } />
 						</div>
 						<div data-2124="top: -580px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/03.png')} />
+							<img src={ require('imgsDir/display/mechanism-03.png') } />
 						</div>
 						<div data-2124="top: -670px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/02.png')} />
+							<img src={ require('imgsDir/display/mechanism-02.png') } />
 						</div>
 						<div data-2124="top: -760px;" data-5124="top: 0px;">
-							<img src={require('imgsDir/display/01.png')} />
+							<img src={ require('imgsDir/display/mechanism-01.png') } />
 						</div>
 					</div>
 				</div>
-				<div className={ style.specific } data-5324="left: 100%;" data-6124="left: 0%;">
+				<div className={ style.specific } data-5324="left: 100%;" data-6124="left: 0%;" data-10324="left: 0%;" data-11124="left: -50%;">
 					<div className={ style.s_box } data-5524="left: 413px;" data-10324="left: -2800px;">
 						<div className={ style.s_title }>
 							<h2>具体技术特点</h2>
@@ -148,10 +158,86 @@ class DisplayContainer extends React.Component {
 								<a href="https://www.facebook.com/4Nwatches" target="_blank"></a>
 							</div>
 						</div>
-						<div className={ style.s_top_line }></div>
+						<div className={ style.s_top_line }>
+							<div data-6164="padding-left: 123px;" data-8164="padding-left: 0px;">
+								<img src={ require('imgsDir/display/specific-01.png') }/>
+							</div>
+							<div data-7244="padding-left: 144px;" data-9244="padding-left: 0px;">
+								<img src={ require('imgsDir/display/specific-02.png') }/>
+							</div>
+							<div data-6364="padding-left: 129px;" data-8364="padding-left: 0px;">
+								<img src={ require('imgsDir/display/specific-03.png') }/>
+							</div>
+							<div data-6724="padding-left: 135px;" data-8724="padding-left: 0px;">
+								<img src={ require('imgsDir/display/specific-04.png') }/>
+							</div>
+							<div data-7924="padding-left: 160px;" data-9924="padding-left: 0px;">
+								<img src={ require('imgsDir/display/specific-05.png') }/>
+							</div>
+						</div>
+						<div className={ style.s_bot_line }>
+							<div data-6124="padding-left: 122px;" data-8124="padding-left: 0px;">
+								<img src={ require('imgsDir/display/specific-06.png') }/>
+							</div>
+							<div data-6244="padding-left: 126px;" data-8244="padding-left: 0px;">
+								<img src={ require('imgsDir/display/specific-07.png') }/>
+							</div>
+							<div data-7564="padding-left: 152px;" data-9564="padding-left: 0px;">
+								<img src={ require('imgsDir/display/specific-08.png') }/>
+							</div>
+							<div data-6524="padding-left: 132px;" data-8524="padding-left: 0px;">
+								<img src={ require('imgsDir/display/specific-09.png') }/>
+							</div>
+							<div data-6964="padding-left: 140px;" data-8964="padding-left: 0px;">
+								<img src={ require('imgsDir/display/specific-10.png') }/>
+							</div>
+						</div>
+						<div data-8324="padding-left: 174px;" data-10324="padding-left: 0px;">
+							<img src={ require('imgsDir/display/specific-11.png') }/>
+						</div>
 					</div>
 				</div>
-				<div className={ style.cover } data-0="opacity: .8;" data-400="opacity: 0;"></div>
+				<div className={ style.watchmaking } data-10324="left: 100%;" data-11124="left: 0%;">
+					<div className={ style.w_box } data-10324="left: 413px; width: 3000px;" data-12924="left: -1000px; width: 2500px;">
+						<div className={ style.w_title }>
+							<h2>高级制表</h2>
+							<p>4N是基于一个特别创新的制表复合体以及惊人的小时跳时和分钟跳时。许多特性让这款表独一无二：该 复合体的独特性、零件数量（514）、该装置的复杂性以及按照高级制表业最纯粹的传统完全手工打造 的成品质量。</p>
+							<div className={ style.logo }>
+								<a href="https://twitter.com/4N_PARIS" target="_blank"></a>
+								<a href="https://www.facebook.com/4Nwatches" target="_blank"></a>
+							</div>
+						</div>
+						<div className={ style.w_top_line }>
+							<div data-10924="padding-left: 129px;" data-12124="padding-left: 0px;">
+								<img src={ require('imgsDir/display/watchmaking-01.png') }/>
+							</div>
+							<div data-11044="padding-left: 136px;" data-12244="padding-left: 0px;">
+								<img src={ require('imgsDir/display/watchmaking-02.png') }/>
+							</div>
+							<div data-11324="padding-left: 145px;" data-12524="padding-left: 0px;">
+								<img src={ require('imgsDir/display/watchmaking-03.png') }/>
+							</div>
+							<div data-11764="padding-left: 161px;" data-12964="padding-left: 0px;">
+								<img src={ require('imgsDir/display/watchmaking-04.png') }/>
+							</div>
+						</div>
+						<div className={ style.w_bot_line }>
+							<div data-10964="padding-left: 132px;" data-12164="padding-left: 0px;">
+								<img src={ require('imgsDir/display/watchmaking-05.png') }/>
+							</div>
+							<div data-11164="padding-left: 140px;" data-12364="padding-left: 0px;">
+								<img src={ require('imgsDir/display/watchmaking-06.png') }/>
+							</div>
+							<div data-11524="padding-left: 152px;" data-12724="padding-left: 0px;">
+								<img src={ require('imgsDir/display/watchmaking-07.png') }/>
+							</div>
+							<div data-11764="padding-left: 161px;" data-12964="padding-left: 0px;">
+								<img src={ require('imgsDir/display/watchmaking-08.png') }/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className={ style.cover } data-0="opacity: 0.8;" data-400="opacity: 0;" data-12914="opacity: 0;" data-13314="opacity: 0.8;"></div>
 			</div>
 		)
 	}
