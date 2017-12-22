@@ -7,7 +7,7 @@ import Footer from 'componentDir/Footer.js'
 import Loader from 'componentDir/Loader.js'
 import Modal from 'componentDir/modal/Modal.js'
 import Welcome from 'componentDir/welcome/Welcome.js'
-import Display from 'componentDir/Display.js'
+import Display from 'componentDir/display/Display.js'
 
 class App extends React.Component {
 	render() {
