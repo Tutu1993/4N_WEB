@@ -24,18 +24,23 @@ class DisplayContainer extends React.Component {
 			const { lastPage } = this.props
 			if (lastPage !== '') {
 				if (lastPage !== '01-display') {
-					console.log('F5')
+					const { loader, loaderToNext, loaderToReset } = this.props
+					if (loader.loader === null) {
+						// const date = ['01', '显示']
+						// loaderToNext(date)
+						// delay(2500).then(() => {
+						// 	this.state.skrollr.setScrollTop(400)
+						// })
+						// delay(3000).then(() => {
+						// 	loaderToReset(date)
+						// })
+					} else {
+						const date = ['01', '显示']
+						this.state.skrollr.setScrollTop(400)
+						loaderToReset(date)
+					}
 				}
 			}
-			// const { loader, loaderToNext, loaderToReset } = this.props
-			// if (loader.loader === null) {
-			// 	const date = ['01', '显示']
-			// 	loaderToNext(date)
-			// 	delay(3000).then(() => {
-			// 		loaderToReset(date)
-			// 	})
-			// }
-			this.state.skrollr.setScrollTop(400)
 			addScrollHandler(this.handleScroll)
 		})
 	}
@@ -49,15 +54,17 @@ class DisplayContainer extends React.Component {
 	}
 	handleScroll() {
 		if (this.state.skrollr.getScrollTop() < 100) {
-			// const { loader, loaderToNext, loaderToReset } = this.props
-			// if (loader.loader === null) {
-			// 	const date = ['00', '欢迎']
-			// 	loaderToNext(date)
-			// 	delay(3000).then(() => {
-			// 		loaderToReset(date)
-			// 		history.push('/')
-			// 	})
-			// }
+			const { loader, loaderToNext, loaderToReset } = this.props
+			if (loader.loader === null) {
+				const date = ['00', '欢迎']
+				loaderToNext(date)
+				delay(2500).then(() => {
+					history.push('/')
+				})
+				// delay(3000).then(() => {
+				// 	loaderToReset(date)
+				// })
+			}
 		}
 		if (this.state.skrollr.getScrollTop() > 13214) {
 			// const { loader, loaderToNext, loaderToReset } = this.props

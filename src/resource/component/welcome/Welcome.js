@@ -29,15 +29,19 @@ class WelcomeContainer extends React.Component {
 			const { lastPage } = this.props
 			if (lastPage !== '') {
 				if (lastPage !== 'welcome') {
-					// const { loader, loaderToNext, loaderToReset } = this.props
-					// if (loader.loader === null) {
-					// 	const date = ['00', '欢迎']
-					// 	this.state.skrollr.setScrollTop(0)
-					// 	loaderToNext(date)
-					// 	delay(3000).then(() => {
-					// 		loaderToReset(date)
-					// 	})
-					// }
+					const { loader, loaderToNext, loaderToReset } = this.props
+					if (loader.loader === null) {
+						// const date = ['00', '欢迎']
+						// loaderToNext(date)
+						// delay(3000).then(() => {
+						// 	this.state.skrollr.setScrollTop(0)
+						// 	loaderToReset(date)
+						// })
+					} else {
+						const date = ['00', '欢迎']
+						this.state.skrollr.setScrollTop(0)
+						loaderToReset(date)
+					}
 				}
 			}
 			addScrollHandler(this.handleScroll)
@@ -67,7 +71,6 @@ class WelcomeContainer extends React.Component {
 				const date = ['01', '显示']
 				loaderToNext(date)
 				delay(3000).then(() => {
-					loaderToReset(date)
 					history.push('/01-display')
 				})
 			}
