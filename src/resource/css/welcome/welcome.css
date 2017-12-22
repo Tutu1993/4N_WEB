@@ -1,7 +1,7 @@
-.box {
+.welcome-box {
   height: 7140px;
 }
-.welcome {
+.wb-hello {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -10,7 +10,7 @@
   z-index: 100;
   animation: toTop 1s ease-in-out forwards;
 }
-.welcome span {
+.wb-hello span {
   display: block;
   position: absolute;
   width: 700px;
@@ -25,7 +25,7 @@
   color: #f6f6f6;
   transform: translate(-50%, -50%);
 }
-.welcome_img {
+.wb-img {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -35,7 +35,7 @@
   z-index: 99;
   animation: toRight 1.25s ease-in-out forwards;
 }
-.list_box {
+.wb-lists {
   position: fixed;
   height: 366px;
   width: 1877px;
@@ -45,24 +45,24 @@
   transform: translateY(-50%);
   z-index: 100;
 }
-.list_box:after {
+.wb-lists:after {
   content: '';
   display: block;
   clear: both;
   height: 0;
   visibility: hidden;
 }
-.list_box > div {
+.wb-lists > div {
   position: relative;
   width: 413px;
   height: 366px;
   float: left;
   color: #f6f6f6;
 }
-.list_box > div:not(:last-child) {
+.wb-lists > div:not(:last-child) {
   margin-right: 75px;
 }
-.list_box > div:not(:last-child):after {
+.wb-lists > div:not(:last-child):after {
   content: '';
   display: inline-block;
   position: absolute;
@@ -72,7 +72,7 @@
   right: -38px;
   background-color: #f6f6f6;
 }
-.cover {
+.wb-cover {
   position: fixed;
   top: 0;
   left: 0;
@@ -83,7 +83,7 @@
   background-color: #fbb034;
   z-index: 100;
 }
-.cover h1 {
+.wb-cover h1 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -96,10 +96,10 @@
   margin: 0;
   transform: translate(-50%, -50%);
 }
-.cover h1 span {
+.wb-cover h1 span {
   font-family: tbold, arial, sans-serif;
 }
-.invite {
+.wb-invite {
   position: fixed;
   left: 50%;
   bottom: 94px;
@@ -111,25 +111,25 @@
   transform: translateX(-50%);
   transition: opacity 0.95s 1.5s ease-in-out;
 }
-.invite h4,
-.invite h5 {
+.wb-invite h4,
+.wb-invite h5 {
   width: 100%;
   font-weight: 400;
   font-family: treg, arial, sans-serif;
   margin: 0;
 }
-.invite h4 {
+.wb-invite h4 {
   font-size: 13px;
 }
-.invite h5 {
+.wb-invite h5 {
   font-size: 11px;
   padding-bottom: 3px;
 }
-.arrow {
+.wb-arrow {
   position: relative;
 }
-.arrow:before,
-.arrow:after {
+.wb-arrow:before,
+.wb-arrow:after {
   content: '';
   position: absolute;
   left: 50%;
@@ -140,11 +140,11 @@
   border-top: 6px solid #fbb034;
   transform: translateX(-50%);
 }
-.arrow:before {
+.wb-arrow:before {
   top: 0;
   animation: toggleOpacity 1s ease-in-out infinite;
 }
-.arrow:after {
+.wb-arrow:after {
   opacity: 0.5;
   top: 9px;
   animation: toggleOpacity 1s 0.5s ease-in-out infinite;

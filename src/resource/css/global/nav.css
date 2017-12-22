@@ -1,4 +1,4 @@
-.nav {
+.global-nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,7 +7,7 @@
   background: #f6f6f6;
   z-index: 1000;
 }
-.logo {
+.gn-logo {
   display: block;
   position: absolute;
   width: 48px;
@@ -15,35 +15,35 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url("../../imgs/global/4N-logo-black.svg") center center no-repeat;
+  background: url("../../imgs/global/4N-logo-black.svg") no-repeat center center;
 }
-.link {
+.gn-link {
   position: absolute;
   top: 50%;
   right: 55px;
   height: 20px;
   transform: translateY(-50%);
 }
-.link a {
+.gn-link a {
   display: inline-block;
   width: 20px;
   height: 20px;
 }
-.link a:not(:last-child) {
+.gn-link a:not(:last-child) {
   margin-right: 12px;
 }
-.link a:nth-child(1) {
-  background: url("../../imgs/global/tw-k.svg") center center no-repeat;
+.gn-link a:nth-child(1) {
+  background: url("../../imgs/global/tw-k.svg") no-repeat center center;
 }
-.link a:nth-child(2) {
-  background: url("../../imgs/global/fb-k.svg") center center no-repeat;
+.gn-link a:nth-child(2) {
+  background: url("../../imgs/global/fb-k.svg") no-repeat center center;
 }
-.link a:nth-child(3) {
-  background: url("../../imgs/global/pint-k.svg") center center no-repeat;
+.gn-link a:nth-child(3) {
+  background: url("../../imgs/global/pint-k.svg") no-repeat center center;
 }
-.link a:nth-child(4) {
-  background: url("../../imgs/global/inst-k.svg") center center no-repeat;
+.gn-link a:nth-child(4) {
+  background: url("../../imgs/global/inst-k.svg") no-repeat center center;
 }
-.link a:nth-child(5) {
-  background: url("../../imgs/global/yt-k.svg") center center no-repeat;
+.gn-link a:nth-child(5) {
+  background: url("../../imgs/global/yt-k.svg") no-repeat center center;
 }

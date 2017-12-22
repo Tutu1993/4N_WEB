@@ -1,4 +1,4 @@
-.box {
+.global-loader {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,7 @@
   z-index: 999;
   transition: all 0.75s ease-in-out;
 }
-.cover {
+.gl-cover {
   position: absolute;
   top: 0;
   left: 0;
@@ -20,7 +20,7 @@
   background-color: #252525;
   z-index: 999;
 }
-.content {
+.gl-content {
   position: absolute;
   top: 0;
   left: 0;
@@ -32,7 +32,7 @@
   z-index: 999;
   animation: toTop 0.8s ease-in-out forwards;
 }
-.content h4 {
+.gl-content h4 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -46,7 +46,7 @@
   text-align: center;
   transform: translate(-50%, -50%);
 }
-.gif {
+.gl-gif {
   position: absolute;
   bottom: 100px;
   height: 24px;

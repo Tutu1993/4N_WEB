@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import style from 'cssDir/global/nav.css'
+
+require('cssDir/global/nav.css')
 
 class Nav extends React.Component {
 	constructor(props) {
@@ -7,9 +8,9 @@ class Nav extends React.Component {
 	}
 	render() {
 		return (
-			<nav className={ style.nav }>
-				<Link to="/" className={ style.logo }></Link>
-				<div className={ style.link }>
+			<nav className="global-nav">
+				<Link to="/" className="gn-logo"></Link>
+				<div className="gn-link">
 					<a href="https://twitter.com/4N_PARIS" target="_blank" rel="nofollow"></a>
 					<a href="https://www.facebook.com/4Nwatches" target="_blank" rel="nofollow"></a>
 					<a href="http://www.pinterest.com/francoisquentin/4n" target="_blank" rel="nofollow"></a>

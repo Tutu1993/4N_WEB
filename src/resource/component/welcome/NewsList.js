@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import style from 'cssDir/welcome/newsList.css'
+require('cssDir/welcome/newsList.css')
 
 const newsArr = [
 	{
@@ -30,16 +30,16 @@ const newsArr = [
 const NewsList = newsArr.map((value, index) => {
 	return (
 		<div key={ index }>
-			<div className={ style.list_head }>
+			<div className="wb-list-head">
 				<span>{ value.time }</span>
-				<div className={ style.list_logo }>
+				<div className="wb-list-logo">
 					<a href="https://twitter.com/4N_PARIS" target="_blank"></a>
 					<a href="https://www.facebook.com/4Nwatches" target="_blank"></a>
 				</div>
 			</div>
-			<div className={ style.list_title }>{ value.title }</div>
-			<div className={ style.list_img } style={ {background: `url(${ value.img }) no-repeat center center`, backgroundSize: 'contain'} }></div>
-			<Link className={ style.list_link } to={ value.href }>了解更多</Link>
+			<div className="wb-list-title">{ value.title }</div>
+			<div className="wb-list-img" style={ {background: `url(${ value.img }) no-repeat center center`, backgroundSize: 'contain'} }></div>
+			<Link className="wb-list-link" to={ value.href }>了解更多</Link>
 		</div>
 	)
 })

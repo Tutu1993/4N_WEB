@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import { store, history } from 'jsDir/store.js'
 import { toggleModalPresse, toggleModalContact, closeModal } from 'jsDir/action.js'
 import { connect } from 'react-redux'
-import style from 'cssDir/global/footer.css'
+
+require('cssDir/global/footer.css')
 
 class FooterContainer extends React.Component {
 	constructor(props) {
@@ -15,13 +16,13 @@ class FooterContainer extends React.Component {
 		const listLinks = links.map((link, index) => {
 			if (modal.modal === null) {
 				if (history.location.pathname === link) {
-					return <Link to={ link } key={ index } className={ style.active }>{ address[index] }</Link>
+					return <Link to={ link } key={ index } className="active">{ address[index] }</Link>
 				} else {
 					return <Link to={ link } key={ index }>{ address[index] }</Link>
 				}
 			} else {
 				if (history.location.pathname === link) {
-					return <Link to={ link } key={ index } className={ style.active } onClick={ closeModal }>{ address[index] }</Link>
+					return <Link to={ link } key={ index } className="active" onClick={ closeModal }>{ address[index] }</Link>
 				} else {
 					return <Link to={ link } key={ index } onClick={ closeModal }>{ address[index] }</Link>
 				}
@@ -31,21 +32,21 @@ class FooterContainer extends React.Component {
 		const listModals = modalName.map((value, index) => {
 			if (index === 0) {
 				if (modal.modal === 'presse') {
-					return <a onClick={ toggleModalPresse } key={ index } className={ style.active }>{ value }</a>
+					return <a onClick={ toggleModalPresse } key={ index } className="active">{ value }</a>
 				} else {
 					return <a onClick={ toggleModalPresse } key={ index }>{ value }</a>
 				}
 			} else {
 				if (modal.modal === 'contact') {
-					return <a onClick={ toggleModalContact } key={ index } className={ style.active }>{ value }</a>
+					return <a onClick={ toggleModalContact } key={ index } className="active">{ value }</a>
 				} else {
 					return <a onClick={ toggleModalContact } key={ index }>{ value }</a>
 				}
 			}
 		})
 		return (
-			<footer className={ style.footer }>
-				<div className={ style.link }>
+			<footer className="global-footer">
+				<div className="gf-link">
 					{ listLinks }
 					{ listModals }
 				</div>

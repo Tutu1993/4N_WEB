@@ -1,8 +1,8 @@
 import { store } from 'jsDir/store.js'
 import { closeModal } from 'jsDir/action.js'
 import { connect } from 'react-redux'
-import Transition from 'react-transition-group/Transition';
-import style from 'cssDir/global/modal/modal.css'
+import Transition from 'react-transition-group/Transition'
+require('cssDir/global/modal/modal.css')
 import PresseList from 'componentDir/modal/PresseList.js'
 import ContactList from 'componentDir/modal/ContactList.js'
 
@@ -34,18 +34,18 @@ class ModalContainer extends React.Component {
 				{(state) => (
 					modal.modal ? (
 						(modal.modal === 'presse') ? (
-							<div className={style.fixed} style={ Object.assign({}, defaultStyle, transitionStyles[state]) }>
-								<div className={ style.modal } onClick={ closeModal }></div>
-								<div className={ style.content }>
-									<div className={ style.close } onClick={ closeModal }></div>
+							<div className="modal-fixed" style={ Object.assign({}, defaultStyle, transitionStyles[state]) }>
+								<div className="global-modal" onClick={ closeModal }></div>
+								<div className="gm-content">
+									<div className="gm-close" onClick={ closeModal }></div>
 									<PresseList clickFunc={ this.handleOpacity } />
 								</div>
 							</div>
 						) : (
-							<div className={style.fixed} style={ Object.assign({}, defaultStyle, transitionStyles[state]) }>
-								<div className={ style.modal } onClick={ closeModal }></div>
-								<div className={ style.content }>
-									<div className={ style.close } onClick={ closeModal }></div>
+							<div className="modal-fixed" style={ Object.assign({}, defaultStyle, transitionStyles[state]) }>
+								<div className="global-modal" onClick={ closeModal }></div>
+								<div className="gm-content">
+									<div className="gm-close" onClick={ closeModal }></div>
 									{ ContactList }
 								</div>
 							</div>

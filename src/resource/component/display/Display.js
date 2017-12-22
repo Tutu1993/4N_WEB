@@ -2,7 +2,7 @@ import { delay, addScrollHandler, removeScrollHandler } from 'vendorDir/function
 import { store, history } from 'jsDir/store.js'
 import { loaderToNext, loaderToReset, updateLastPage } from 'jsDir/action.js'
 import { connect } from 'react-redux'
-import style from 'cssDir/display/display.css'
+require('cssDir/display/display.css')
 import Functionality from 'componentDir/display/Functionality.js'
 import Mechanism from 'componentDir/display/Mechanism.js'
 import Specific from 'componentDir/display/Specific.js'
@@ -73,12 +73,12 @@ class DisplayContainer extends React.Component {
 	}
 	render() {
 		return (
-			<div className={ style.box }>
+			<div className="display-box">
 				{ Functionality }
 				{ Mechanism }
 				{ Specific }
 				{ Watchmaking }
-				<div className={ style.cover } data-0="opacity: 0.8;" data-400="opacity: 0;" data-12914="opacity: 0;" data-13314="opacity: 0.8;"></div>
+				<div className="db-cover" data-0="opacity: 0.8;" data-400="opacity: 0;" data-12914="opacity: 0;" data-13314="opacity: 0.8;"></div>
 			</div>
 		)
 	}

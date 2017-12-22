@@ -1,7 +1,7 @@
-import style from 'cssDir/global/modal/contactList.css'
+require('cssDir/global/modal/contactList.css')
 
 const ContactList = (
-	<div className={ style.contact }>
+	<div className="gm-contact">
 		<h1>联系</h1>
 		<div>
 			<a href="mailto:contact@4-n.fr&#9;" target="_blank">contactpress@4-n.fr</a>

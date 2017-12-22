@@ -1,16 +1,16 @@
-import style from 'cssDir/display/specific.css'
+require('cssDir/display/specific.css')
 
 const Specific = (
-	<div className={ style.specific } data-5324="left: 100%;" data-6124="left: 0%;" data-10324="left: 0%;" data-11124="left: -50%;">
-		<div className={ style.s_box } data-5524="left: 413px;" data-10324="left: -2800px;">
-			<div className={ style.s_title }>
+	<div className="db-specific" data-5324="left: 100%;" data-6124="left: 0%;" data-10324="left: 0%;" data-11124="left: -50%;">
+		<div className="db-s-box" data-5524="left: 413px;" data-10324="left: -2800px;">
+			<div className="db-s-title">
 				<h2>具体技术特点</h2>
-				<div className={ style.logo }>
+				<div className="db-logo">
 					<a href="https://twitter.com/4N_PARIS" target="_blank"></a>
 					<a href="https://www.facebook.com/4Nwatches" target="_blank"></a>
 				</div>
 			</div>
-			<div className={ style.s_top_line }>
+			<div className="db-s-top-line">
 				<div data-6164="padding-left: 123px;" data-8164="padding-left: 0px;">
 					<img src={ require('imgsDir/display/specific-01.png') }/>
 				</div>
@@ -27,7 +27,7 @@ const Specific = (
 					<img src={ require('imgsDir/display/specific-05.png') }/>
 				</div>
 			</div>
-			<div className={ style.s_bot_line }>
+			<div className="db-s-bot-line">
 				<div data-6124="padding-left: 122px;" data-8124="padding-left: 0px;">
 					<img src={ require('imgsDir/display/specific-06.png') }/>
 				</div>

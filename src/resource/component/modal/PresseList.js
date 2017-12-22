@@ -1,4 +1,4 @@
-import style from 'cssDir/global/modal/presseList.css'
+require('cssDir/global/modal/presseList.css')
 
 class PresseList extends React.Component {
 	constructor(props) {
@@ -7,9 +7,9 @@ class PresseList extends React.Component {
 	render() {
 		const { clickFunc } = this.props
 		return (
-			<div className={ style.presse }>
+			<div className="gm-presse">
 				<h1>文章媒体</h1>
-				<div className={ style.click }>
+				<div className="gm-click">
 					<span>
 						<a href="mailto:contactpress@4-n.fr&#9;" target="_blank">contactpress@4-n.fr</a>
 					</span>
@@ -19,10 +19,10 @@ class PresseList extends React.Component {
 						<a href="http://www.4nparis.com/press/presskit4N_2016_videos.zip">短片</a>
 					</span>
 					<span>
-						<a id="a-news-letter" onClick={ clickFunc }>预定4N的新闻通讯</a>
+						<a onClick={ clickFunc }>预定4N的新闻通讯</a>
 					</span>
 				</div>
-				<div className={ style.form }>
+				<div className="gm-form">
 					<span>预定4N的新闻通讯</span>
 					<form action="/interface/post.php" method="post">
 						<input type="text" name="email" placeholder="email" />

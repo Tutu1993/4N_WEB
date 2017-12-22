@@ -2,8 +2,8 @@ import { delay, addScrollHandler, removeScrollHandler } from 'vendorDir/function
 import { store, history } from 'jsDir/store.js'
 import { loaderToNext, loaderToReset, updateLastPage } from 'jsDir/action.js'
 import { connect } from 'react-redux'
-import Transition from 'react-transition-group/Transition';
-import style from 'cssDir/welcome/welcome.css'
+import Transition from 'react-transition-group/Transition'
+require('cssDir/welcome/welcome.css')
 import NewsList from 'componentDir/welcome/NewsList.js'
 
 class WelcomeContainer extends React.Component {
@@ -79,23 +79,23 @@ class WelcomeContainer extends React.Component {
 			exited: { opacity: 0, transition: `opacity .95s ease-in-out` },
 		}
 		return (
-			<div className={ style.box }>
-				<div className={ style.welcome } data-0="top: 0%" data-400="top: -100%">
+			<div className="welcome-box">
+				<div className="wb-hello" data-0="top: 0%" data-400="top: -100%">
 					<span>欢迎4N网站</span>
 				</div>
-				<div className={ style.welcome_img } data-0="left: -850px;" data-800="left: 0px;"></div>
-				<div className={ style.list_box } data-800="left: 100%; margin-left: 0px;" data-4800="left: 0%; margin-left: -1951px;">
+				<div className="wb-img" data-0="left: -850px;" data-800="left: 0px;"></div>
+				<div className="wb-lists" data-800="left: 100%; margin-left: 0px;" data-4800="left: 0%; margin-left: -1951px;">
 					{ NewsList }
 				</div>
-				<div className={ style.cover } data-4800="top: 100%;" data-5800="top: 0%;" data-6200="top: 0%;">
+				<div className="wb-cover" data-4800="top: 100%;" data-5800="top: 0%;" data-6200="top: 0%;">
 					<h1><span>4N</span>-MVT<span>01</span>/D<span>01</span></h1>
 				</div>
 				<Transition in={ this.state.invite } timeout={ 50 }>
 					{(state) => (
-						<div className={ style.invite } style={ Object.assign({}, inviteStyles[state]) }>
+						<div className="wb-invite" style={ Object.assign({}, inviteStyles[state]) }>
 							<h4>SCROLL</h4>
 							<h5>4N-MVT01/D01</h5>
-							<div className={ style.arrow }></div>
+							<div className="wb-arrow"></div>
 						</div>
 					)}
 				</Transition>

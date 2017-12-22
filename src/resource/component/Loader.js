@@ -1,7 +1,8 @@
 import { store, history } from 'jsDir/store.js'
 import { connect } from 'react-redux'
 import Transition from 'react-transition-group/Transition';
-import style from 'cssDir/global/loader.css'
+
+require('cssDir/global/loader.css')
 
 class LoaderContainer extends React.Component {
 	constructor(props) {
@@ -22,11 +23,11 @@ class LoaderContainer extends React.Component {
 			<Transition in={ loader.in } timeout={ 50 }>
 				{(state) => (
 					loader.loader ? (
-						<div className={ style.box } style={ Object.assign({}, defaultStyle, loaderStyles[state]) }>
-							<div className={ style.cover }></div>
-							<div className={ style.content }>
+						<div className="global-loader" style={ Object.assign({}, defaultStyle, loaderStyles[state]) }>
+							<div className="gl-cover"></div>
+							<div className="gl-content">
 								<h4>{ loader.loader[0] }<br /><span>{ loader.loader[1] }</span></h4>
-								<div className={ style.gif }></div>
+								<div className="gl-gif"></div>
 							</div>
 						</div>
 					) : null
