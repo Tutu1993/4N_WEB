@@ -1,6 +1,8 @@
+import { delay } from 'vendorDir/function.js'
 import { Link } from 'react-router-dom'
 import { store, history } from 'jsDir/store.js'
 import { toggleModalPresse, toggleModalContact, closeModal } from 'jsDir/action.js'
+import { loaderToNext } from 'jsDir/action.js'
 import { connect } from 'react-redux'
 
 require('cssDir/global/footer.css')
@@ -8,6 +10,13 @@ require('cssDir/global/footer.css')
 class FooterContainer extends React.Component {
 	constructor(props) {
 		super(props)
+	}
+	handleClick(e) {
+		e.preventDefault()
+		store.dispatch(loaderToNext(['01', '显示']))
+		delay(1500).then(() => {
+			history.push('/01-display')
+		})
 	}
 	render() {
 		const { modal, toggleModalPresse, toggleModalContact, closeModal } = this.props
@@ -18,7 +27,11 @@ class FooterContainer extends React.Component {
 				if (history.location.pathname === link) {
 					return <Link to={ link } key={ index } className="active">{ address[index] }</Link>
 				} else {
-					return <Link to={ link } key={ index }>{ address[index] }</Link>
+					if (link === '/01-display') {
+						return <Link to={ link } key={ index } onClick={ this.handleClick }>{ address[index] }</Link>
+					} else {
+						return <Link to={ link } key={ index }>{ address[index] }</Link>
+					}
 				}
 			} else {
 				if (history.location.pathname === link) {

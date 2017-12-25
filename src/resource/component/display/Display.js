@@ -28,13 +28,13 @@ class DisplayContainer extends React.Component {
 					const { loader, loaderToNext, loaderToReset } = this.props
 					if (loader.loader === null) {
 						const date = ['01', '显示']
-						// loaderToNext(date)
-						// delay(2500).then(() => {
+						loaderToNext(date)
+						delay(1000).then(() => {
 							this.state.skrollr.setScrollTop(400)
-						// })
-						// delay(3000).then(() => {
-						// 	loaderToReset(date)
-						// })
+						})
+						delay(1500).then(() => {
+							loaderToReset(date)
+						})
 					} else {
 						const date = ['01', '显示']
 						this.state.skrollr.setScrollTop(400)
@@ -59,10 +59,10 @@ class DisplayContainer extends React.Component {
 			if (loader.loader === null) {
 				const date = ['00', '欢迎']
 				loaderToNext(date)
-				delay(2500).then(() => {
+				delay(1000).then(() => {
 					history.push('/')
 				})
-				// delay(3000).then(() => {
+				// delay(1500).then(() => {
 				// 	loaderToReset(date)
 				// })
 			}
@@ -72,9 +72,9 @@ class DisplayContainer extends React.Component {
 			// if (loader.loader === null) {
 			// 	const date = ['02', '动画']
 			// 	loaderToNext(date)
-			// 	delay(3000).then(() => {
+			// 	delay(1500).then(() => {
 			// 		loaderToReset(date)
-			// 		history.push('/')
+			// 		history.push('/02-animation')
 			// 	})
 			// }
 		}

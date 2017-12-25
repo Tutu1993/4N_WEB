@@ -31,12 +31,14 @@ class WelcomeContainer extends React.Component {
 				if (lastPage !== 'welcome') {
 					const { loader, loaderToNext, loaderToReset } = this.props
 					if (loader.loader === null) {
-						// const date = ['00', '欢迎']
-						// loaderToNext(date)
-						// delay(3000).then(() => {
-						// 	this.state.skrollr.setScrollTop(0)
-						// 	loaderToReset(date)
-						// })
+						const date = ['00', '欢迎']
+						loaderToNext(date)
+						delay(1000).then(() => {
+							this.state.skrollr.setScrollTop(0)
+						})
+						delay(1500).then(() => {
+							loaderToReset(date)
+						})
 					} else {
 						const date = ['00', '欢迎']
 						this.state.skrollr.setScrollTop(0)
