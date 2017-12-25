@@ -3,6 +3,7 @@ import { store, history } from 'jsDir/store.js'
 import { loaderToNext, loaderToReset, updateLastPage } from 'jsDir/action.js'
 import { connect } from 'react-redux'
 require('cssDir/display/display.css')
+import SecondNav from 'componentDir/common/SecondNav.js'
 import Functionality from 'componentDir/display/Functionality.js'
 import Mechanism from 'componentDir/display/Mechanism.js'
 import Specific from 'componentDir/display/Specific.js'
@@ -26,10 +27,10 @@ class DisplayContainer extends React.Component {
 				if (lastPage !== '01-display') {
 					const { loader, loaderToNext, loaderToReset } = this.props
 					if (loader.loader === null) {
-						// const date = ['01', '显示']
+						const date = ['01', '显示']
 						// loaderToNext(date)
 						// delay(2500).then(() => {
-						// 	this.state.skrollr.setScrollTop(400)
+							this.state.skrollr.setScrollTop(400)
 						// })
 						// delay(3000).then(() => {
 						// 	loaderToReset(date)
@@ -81,6 +82,7 @@ class DisplayContainer extends React.Component {
 	render() {
 		return (
 			<div className="display-box">
+				<SecondNav />
 				{ Functionality }
 				{ Mechanism }
 				{ Specific }

@@ -13,7 +13,7 @@ class FooterContainer extends React.Component {
 		const { modal, toggleModalPresse, toggleModalContact, closeModal } = this.props
 		const links = ['/01-display', '/news', '/collection', '/retailers']
 		const address = ['4N-MVT01/D01', '新闻', '集', '零售商']
-		const listLinks = links.map((link, index) => {
+		const linksList = links.map((link, index) => {
 			if (modal.modal === null) {
 				if (history.location.pathname === link) {
 					return <Link to={ link } key={ index } className="active">{ address[index] }</Link>
@@ -29,7 +29,7 @@ class FooterContainer extends React.Component {
 			}
 		})
 		const modalName = ['文章媒体', '联系']
-		const listModals = modalName.map((value, index) => {
+		const modalsList = modalName.map((value, index) => {
 			if (index === 0) {
 				if (modal.modal === 'presse') {
 					return <a onClick={ toggleModalPresse } key={ index } className="active">{ value }</a>
@@ -47,8 +47,8 @@ class FooterContainer extends React.Component {
 		return (
 			<footer className="global-footer">
 				<div className="gf-link">
-					{ listLinks }
-					{ listModals }
+					{ linksList }
+					{ modalsList }
 				</div>
 			</footer>
 		)

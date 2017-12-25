@@ -1,0 +1,81 @@
+.second-nav {
+  position: fixed;
+  bottom: 43px;
+  width: 100%;
+  height: 16px;
+  text-align: center;
+  background-color: #fff;
+  z-index: 1000;
+  transition: 0.2s all ease-in-out;
+}
+.sn-box {
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
+  left: calc(50% - 83px);
+  width: 166px;
+  height: 16px;
+  background-color: #fff;
+  z-index: 1000;
+}
+.sn-box a {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+.sn-box a:not(:last-child) {
+  margin-right: 34px;
+}
+.sn-box a:before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  background-color: #000;
+  transform: scale(0.4);
+  transition: 0.2s transform ease-in-out, 0.2s background-color ease-in;
+  z-index: 1000;
+}
+.sn-box a:hover:before {
+  transform: scale(0.8);
+  background-color: #fbb034;
+}
+.sn-box a.active:before {
+  transform: scale(0.6);
+  background-color: #fbb034;
+}
+.sn-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 11px;
+  padding-top: 7px;
+  font-weight: 400;
+  font-family: treg, arial, sans-serif;
+  font-size: 11px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000;
+  opacity: 0;
+  z-index: 999;
+  transition: 0.1s opacity ease-in-out;
+}
+.second-nav:hover {
+  height: 37px;
+}
+.second-nav:hover a.active:before {
+  transform: scale(0.8);
+}
+.second-nav:hover a.active:after {
+  opacity: 1;
+  bottom: 59px;
+  transition: 0.2s bottom ease-in-out;
+}
+.second-nav:hover .sn-text {
+  opacity: 1;
+}
