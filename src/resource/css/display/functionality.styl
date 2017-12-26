@@ -10,12 +10,46 @@
 	z-index 100
 	.db-text-box
 		height 322px
+		left 100%
+	.db-text-word
+		left 250%
+	.db-logo
+		left 500%
 .db-f-img
 	position absolute
 	width 660px
 	height 365px
 	top 50%
-	left calc(50% - 140px)
+	left 100%
 	transform translateY(-50%)
 	background url('../../imgs/display/4N-fonc-anim.jpg') no-repeat left center
 	background-position-y 0px
+.db-functionality
+	.db-text-box
+		animation toRight-1 .75s .3s ease-in-out forwards
+	.db-text-word
+		animation toRight-2 .75s .3s ease-in-out forwards
+	.db-logo
+		animation toRight-3 .75s .3s ease-in-out forwards
+	.db-f-img
+		animation toRight-4 .6s .5s ease-in-out forwards
+@keyframes toRight-1
+	from
+		left 100%
+	to
+		left calc(50% - 470px)
+@keyframes toRight-2
+	from
+		left 250%
+	to
+		left 0%
+@keyframes toRight-3
+	from
+		left 500%
+	to
+		left 0%
+@keyframes toRight-4
+	from
+		left 100%
+	to
+		left calc(50% - 140px)
