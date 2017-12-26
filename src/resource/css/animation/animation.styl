@@ -1,2 +1,91 @@
 .animation-box
-	height 10000px
+	height 5189px
+.ab-content
+	position fixed
+	top 0
+	left 0
+	bottom 0
+	right 0
+	width 3768px
+	height 100%
+	background #252525
+	margin-left 100%
+	animation toRight .75s .08s ease-in-out forwards
+	&:after
+		content ''
+		display block
+		clear both
+		height 0
+		visibility hidden
+.ab-video
+	float left
+	width 872px
+	height 100%
+	padding 0 35px
+	&:nth-child(2n + 1)
+		background-color #252525
+	&:nth-child(2n)
+		background-color #333
+.ab-v-box
+	width 872px
+	height 538px
+	position relative
+	top 49%
+	margin-top -269px
+	background #000
+.ab-v-img
+	position absolute
+	width 100%
+	height 100%
+	opacity .5
+.ab-v-play
+	position absolute
+	top 50%
+	left 50%
+	width 78px
+	height 78px
+	background url('../../imgs/animation/4N-play.png') no-repeat center center
+	transform translate(-50%, -50%)
+	cursor pointer
+.ab-v-text
+	position absolute
+	bottom 0
+	margin 0 0 28px 33px
+	h2
+		width 315px
+		margin 0 0 7px
+		font-size 40px
+		font-weight 400
+		font-family tlight,'arial narrow',sans-serif
+		line-height 43px
+		letter-spacing 3px
+		color #f6f6f6
+		text-transform uppercase
+	p
+		width 315px
+		margin 0
+		padding 0
+		font-size 13px
+		line-height 17px
+		font-family "Times New Roman"
+		color #fff
+		hyphens auto
+		word-wrap break-word
+.ab-v-logo
+	width 52px
+	height 20px
+	margin-top 14px
+	a
+		display inline-block
+		width 20px
+		height 20px
+		&:first-child
+			background url('../../imgs/global/tw-o.svg') no-repeat center center
+			margin-right 12px
+		&:last-child
+			background url('../../imgs/global/fb-o.svg') no-repeat center center
+@keyframes toRight
+	from
+		margin-left 100%
+	to
+		margin-left 0%

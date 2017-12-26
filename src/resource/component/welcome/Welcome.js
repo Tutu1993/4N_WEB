@@ -29,7 +29,7 @@ class WelcomeContainer extends React.Component {
 		delay(0).then(() => {
 			const { lastPage } = this.props
 			if (lastPage !== '') {
-				if (lastPage !== 'welcome') {
+				if (lastPage !== '/welcome') {
 					const { loader, loaderToNext, loaderToReset } = this.props
 					if (loader.loader === null) {
 						const date = ['00', '欢迎']
@@ -58,7 +58,7 @@ class WelcomeContainer extends React.Component {
 			top: null,
 		})
 		removeScrollHandler(this.handleScroll)
-		this.props.updateLastPage('welcome')
+		this.props.updateLastPage('/welcome')
 	}
 	handleScroll() {
 		if (this.state.invite) {

@@ -16,7 +16,7 @@ const switchActive = href => {
 			return '02-动画'
 			break
 		case '03-sophistication':
-			return '03-孙志明'
+			return '03-精致'
 			break
 		case '04-design':
 			return '04-设计'

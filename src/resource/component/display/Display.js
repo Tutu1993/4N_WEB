@@ -26,7 +26,7 @@ class DisplayContainer extends React.Component {
 		delay(0).then(() => {
 			const { lastPage } = this.props
 			if (lastPage !== '') {
-				if (lastPage !== '01-display') {
+				if (lastPage !== '/01-display') {
 					const { loader, loaderToNext, loaderToReset } = this.props
 					if (loader.loader === null) {
 						const date = ['01', '显示']
@@ -53,7 +53,7 @@ class DisplayContainer extends React.Component {
 			skrollr: null,
 		})
 		removeScrollHandler(this.handleScroll)
-		this.props.updateLastPage('01-display')
+		this.props.updateLastPage('/01-display')
 	}
 	handleScroll() {
 		if (this.state.skrollr.getScrollTop() < 100) {
@@ -85,7 +85,7 @@ class DisplayContainer extends React.Component {
 				{ Mechanism }
 				{ Specific }
 				{ Watchmaking }
-				<GlobalCover data-0="opacity: 0.8;" data-400="opacity: 0;" data-12914="opacity: 0;" data-13314="opacity: 0.8;"/>
+				<GlobalCover data-0="opacity: 0.8;" data-400="opacity: 0;" data-12914="opacity: 0;" data-13314="opacity: 0.8;" />
 			</div>
 		)
 	}
