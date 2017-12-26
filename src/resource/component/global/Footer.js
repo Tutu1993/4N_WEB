@@ -10,34 +10,63 @@ require('cssDir/global/footer.css')
 class FooterContainer extends React.Component {
 	constructor(props) {
 		super(props)
+		this.handleClick = this.handleClick.bind(this)
 	}
 	handleClick(e) {
 		e.preventDefault()
-		store.dispatch(loaderToNext(['01', '显示']))
-		delay(1500).then(() => {
-			history.push('/01-display')
-		})
+		const { modal, loader, loaderToNext, closeModal } = this.props
+		if (modal.modal === null) {
+			if (loader.loader === null) {
+				loaderToNext(['01', '显示'])
+				delay(1500).then(() => {
+					history.push('/01-display')
+				})
+			}
+		} else {
+			closeModal()
+			if (loader.loader === null) {
+				delay(300).then(() => {
+					loaderToNext(['01', '显示'])
+				})
+				delay(1500).then(() => {
+					history.push('/01-display')
+				})
+			}
+		}
 	}
 	render() {
 		const { modal, toggleModalPresse, toggleModalContact, closeModal } = this.props
 		const links = ['/01-display', '/news', '/collection', '/retailers']
 		const address = ['4N-MVT01/D01', '新闻', '集', '零售商']
+		const pathname = history.location.pathname
 		const linksList = links.map((link, index) => {
 			if (modal.modal === null) {
-				if (history.location.pathname === link) {
+				if (pathname === link) {
 					return <Link to={ link } key={ index } className="active">{ address[index] }</Link>
 				} else {
 					if (link === '/01-display') {
-						return <Link to={ link } key={ index } onClick={ this.handleClick }>{ address[index] }</Link>
+						if (pathname === '/02-animation' || pathname === '03-sophistication' || pathname === '04-design') {
+							return <Link to={ link } key={ index } className="active" onClick={ this.handleClick }>{ address[index] }</Link>
+						} else {
+							return <Link to={ link } key={ index } onClick={ this.handleClick }>{ address[index] }</Link>
+						}
 					} else {
 						return <Link to={ link } key={ index }>{ address[index] }</Link>
 					}
 				}
 			} else {
-				if (history.location.pathname === link) {
+				if (pathname === link) {
 					return <Link to={ link } key={ index } className="active" onClick={ closeModal }>{ address[index] }</Link>
 				} else {
-					return <Link to={ link } key={ index } onClick={ closeModal }>{ address[index] }</Link>
+					if (link === '/01-display') {
+						if (pathname === '/02-animation' || pathname === '03-sophistication' || pathname === '04-design') {
+							return <Link to={ link } key={ index } className="active" onClick={ this.handleClick }>{ address[index] }</Link>
+						} else {
+							return <Link to={ link } key={ index } onClick={ this.handleClick }>{ address[index] }</Link>
+						}
+					} else {
+						return <Link to={ link } key={ index } onClick={ closeModal }>{ address[index] }</Link>
+					}
 				}
 			}
 		})
@@ -69,16 +98,20 @@ class FooterContainer extends React.Component {
 }
 
 FooterContainer.propTypes = {
+	routerReducer: PropTypes.object.isRequired,
 	modal: PropTypes.object.isRequired,
+	loader: PropTypes.object.isRequired,
 	toggleModalPresse: PropTypes.func.isRequired,
 	toggleModalContact: PropTypes.func.isRequired,
 	closeModal: PropTypes.func.isRequired,
+	loaderToNext: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => {
 	return {
 		routerReducer: state.routerReducer,
 		modal: state.modal,
+		loader: state.loader,
 	}
 }
 const mapDispatchToProps = dispatch => {
@@ -86,6 +119,7 @@ const mapDispatchToProps = dispatch => {
 		toggleModalPresse: () => store.dispatch(toggleModalPresse()),
 		toggleModalContact: () => store.dispatch(toggleModalContact()),
 		closeModal: () => store.dispatch(closeModal()),
+		loaderToNext: (...args) => store.dispatch(loaderToNext(...args)),
 	}
 }
 const Footer = connect(

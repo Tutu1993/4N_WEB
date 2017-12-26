@@ -1,7 +1,8 @@
 import { delay } from 'vendorDir/function.js'
 import { Link } from 'react-router-dom'
 import { store, history } from 'jsDir/store.js'
-import { loaderToNext, loaderToReset } from 'jsDir/action.js'
+import { closeModal } from 'jsDir/action.js'
+import { loaderToNext } from 'jsDir/action.js'
 import { connect } from 'react-redux'
 
 require('cssDir/common/secondNav.css')
@@ -48,27 +49,60 @@ class SecondNavContainer extends React.Component {
 	}
 	handleClick(e) {
 		e.preventDefault()
+		const { modal, closeModal } = this.props
 		const arr = e.target.href.split('/')
 		if (arr[arr.length - 1] === history.location.pathname.split('/')[1]) {
-			return
+			if (modal.modal === null) {
+				return
+			} else {
+				closeModal()
+			}
 		} else {
-			const { loader, loaderToNext, loaderToReset } = this.props
-			if (loader.loader === null) {
-				const date = ['01', '显示']
-				loaderToNext(date)
-				delay(1000).then(() => {
-					history.push('/01-display')
-				})
+			const { loader, loaderToNext } = this.props
+			const data = switchActive(arr[arr.length - 1]).split('-')
+			for (let obj of e.target.parentNode.childNodes) {
+				if (obj.classList.value !== '') {
+					obj.classList.remove("active");
+				}
+			}
+			e.target.classList.add('active')
+			if (modal.modal === null) {
+				if (loader.loader === null) {
+					loaderToNext(data)
+					delay(1500).then(() => {
+						history.push('/' + arr[arr.length - 1])
+					})
+				}
+			} else {
+				closeModal()
+				if (loader.loader === null) {
+					delay(300).then(() => {
+						loaderToNext(data)
+					})
+					delay(1500).then(() => {
+						history.push('/' + arr[arr.length - 1])
+					})
+				}
 			}
 		}
 	}
 	render() {
 		const links = ['/01-display', '/02-animation', '/03-sophistication', '/04-design']
+		const pathname = history.location.pathname
+		const { modal, closeModal } = this.props
 		const linksList = links.map((link, index) => {
-			if (history.location.pathname === link) {
-				return <Link to={ link } className="active" onMouseOver={ this.handleMouseOver } onMouseOut={ this.handleMouseOut } onClick={ this.handleClick } key={ index }></Link>
+			if (modal.modal === null ) {
+				if (pathname === link) {
+					return <Link to={ link } className="active" key={ index }></Link>
+				} else {
+					return <Link to={ link } onMouseOver={ this.handleMouseOver } onMouseOut={ this.handleMouseOut } key={ index } onClick={ this.handleClick }></Link>
+				}
 			} else {
-				return <Link to={ link } onMouseOver={ this.handleMouseOver } onMouseOut={ this.handleMouseOut } key={ index }></Link>
+				if (pathname === link) {
+					return <Link to={ link } className="active" onClick={ this.handleClick } key={ index }></Link>
+				} else {
+					return <Link to={ link } onMouseOver={ this.handleMouseOver } onMouseOut={ this.handleMouseOut } key={ index } onClick={ this.handleClick }></Link>
+				}
 			}
 		})
 		return (
@@ -84,19 +118,21 @@ class SecondNavContainer extends React.Component {
 
 SecondNavContainer.propTypes = {
 	loader: PropTypes.object.isRequired,
+	modal: PropTypes.object.isRequired,
+	closeModal: PropTypes.func.isRequired,
 	loaderToNext: PropTypes.func.isRequired,
-	loaderToReset: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => {
 	return {
 		loader: state.loader,
+		modal: state.modal,
 	}
 }
 const mapDispatchToProps = dispatch => {
 	return {
+		closeModal: () => store.dispatch(closeModal()),
 		loaderToNext: (...args) => store.dispatch(loaderToNext(...args)),
-		loaderToReset: (...args) => store.dispatch(loaderToReset(...args)),
 	}
 }
 const SecondNav = connect(

@@ -3,14 +3,10 @@ import { store, history } from 'jsDir/store.js'
 import { loaderToNext, loaderToReset, updateLastPage } from 'jsDir/action.js'
 import { connect } from 'react-redux'
 
-require('cssDir/display/display.css')
+require('cssDir/animation/animation.css')
 import SecondNav from 'componentDir/common/SecondNav.js'
-import Functionality from 'componentDir/display/Functionality.js'
-import Mechanism from 'componentDir/display/Mechanism.js'
-import Specific from 'componentDir/display/Specific.js'
-import Watchmaking from 'componentDir/display/Watchmaking.js'
 
-class DisplayContainer extends React.Component {
+class AnimationContainer extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -25,10 +21,10 @@ class DisplayContainer extends React.Component {
 		delay(0).then(() => {
 			const { lastPage } = this.props
 			if (lastPage !== '') {
-				if (lastPage !== '01-display') {
+				if (lastPage !== '02-animation') {
 					const { loader, loaderToNext, loaderToReset } = this.props
 					if (loader.loader === null) {
-						const date = ['01', '显示']
+						const date = ['02', '动画']
 						loaderToNext(date)
 						delay(1000).then(() => {
 							this.state.skrollr.setScrollTop(400)
@@ -37,7 +33,7 @@ class DisplayContainer extends React.Component {
 							loaderToReset(date)
 						})
 					} else {
-						const date = ['01', '显示']
+						const date = ['02', '动画']
 						this.state.skrollr.setScrollTop(400)
 						loaderToReset(date)
 					}
@@ -52,45 +48,40 @@ class DisplayContainer extends React.Component {
 			skrollr: null,
 		})
 		removeScrollHandler(this.handleScroll)
-		this.props.updateLastPage('01-display')
+		this.props.updateLastPage('02-animation')
 	}
 	handleScroll() {
 		if (this.state.skrollr.getScrollTop() < 100) {
-			const { loader, loaderToNext, loaderToReset } = this.props
-			if (loader.loader === null) {
-				const date = ['00', '欢迎']
-				loaderToNext(date)
-				delay(1500).then(() => {
-					history.push('/')
-				})
-			}
+			// const { loader, loaderToNext, loaderToReset } = this.props
+			// if (loader.loader === null) {
+			// 	const date = ['00', '欢迎']
+			// 	loaderToNext(date)
+			// 	delay(1500).then(() => {
+			// 		history.push('/')
+			// 	})
+			// }
 		}
 		if (this.state.skrollr.getScrollTop() > 13214) {
-			const { loader, loaderToNext, loaderToReset } = this.props
-			if (loader.loader === null) {
-				const date = ['02', '动画']
-				loaderToNext(date)
-				delay(1500).then(() => {
-					history.push('/02-animation')
-				})
-			}
+			// const { loader, loaderToNext, loaderToReset } = this.props
+			// if (loader.loader === null) {
+			// 	const date = ['02', '动画']
+			// 	loaderToNext(date)
+			// 	delay(1500).then(() => {
+			// 		history.push('/02-animation')
+			// 	})
+			// }
 		}
 	}
 	render() {
 		return (
-			<div className="display-box">
+			<div className="animation-box">
 				<SecondNav />
-				{ Functionality }
-				{ Mechanism }
-				{ Specific }
-				{ Watchmaking }
-				<div className="db-cover" data-0="opacity: 0.8;" data-400="opacity: 0;" data-12914="opacity: 0;" data-13314="opacity: 0.8;"></div>
 			</div>
 		)
 	}
 }
 
-DisplayContainer.propTypes = {
+AnimationContainer.propTypes = {
 	lastPage: PropTypes.string.isRequired,
 	loader: PropTypes.object.isRequired,
 	loaderToNext: PropTypes.func.isRequired,
@@ -111,9 +102,9 @@ const mapDispatchToProps = dispatch => {
 		updateLastPage: (...args) => store.dispatch(updateLastPage(...args)),
 	}
 }
-const Display = connect(
+const Animation = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(DisplayContainer)
+)(AnimationContainer)
 
-export default Display
+export default Animation

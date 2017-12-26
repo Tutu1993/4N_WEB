@@ -3,6 +3,7 @@ import { store, history } from 'jsDir/store.js'
 import { loaderToNext, loaderToReset, updateLastPage } from 'jsDir/action.js'
 import { connect } from 'react-redux'
 import Transition from 'react-transition-group/Transition'
+
 require('cssDir/welcome/welcome.css')
 import NewsList from 'componentDir/welcome/NewsList.js'
 
@@ -72,7 +73,7 @@ class WelcomeContainer extends React.Component {
 			if (loader.loader === null) {
 				const date = ['01', '显示']
 				loaderToNext(date)
-				delay(3000).then(() => {
+				delay(1500).then(() => {
 					history.push('/01-display')
 				})
 			}
