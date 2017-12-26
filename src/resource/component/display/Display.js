@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 require('cssDir/display/display.css')
 import SecondNav from 'componentDir/common/SecondNav.js'
+import GlobalCover from 'componentDir/common/GlobalCover.js'
 import Functionality from 'componentDir/display/Functionality.js'
 import Mechanism from 'componentDir/display/Mechanism.js'
 import Specific from 'componentDir/display/Specific.js'
@@ -84,7 +85,7 @@ class DisplayContainer extends React.Component {
 				{ Mechanism }
 				{ Specific }
 				{ Watchmaking }
-				<div className="db-cover" data-0="opacity: 0.8;" data-400="opacity: 0;" data-12914="opacity: 0;" data-13314="opacity: 0.8;"></div>
+				<GlobalCover data-0="opacity: 0.8;" data-400="opacity: 0;" data-12914="opacity: 0;" data-13314="opacity: 0.8;"/>
 			</div>
 		)
 	}
