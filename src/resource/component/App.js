@@ -9,6 +9,7 @@ import Modal from 'componentDir/modal/Modal.js'
 import Welcome from 'componentDir/welcome/Welcome.js'
 import Display from 'componentDir/display/Display.js'
 import Animation from 'componentDir/animation/Animation.js'
+import Sophistication from 'componentDir/sophistication/Sophistication.js'
 
 class App extends React.Component {
 	render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
 							<Route exact path="/" component={ Welcome }/>
 							<Route exact path="/01-display" component={ Display }/>
 							<Route exact path="/02-animation" component={ Animation }/>
+							<Route exact path="/03-sophistication" component={ Sophistication }/>
 						</Switch>
 						<Footer />
 						<Loader />

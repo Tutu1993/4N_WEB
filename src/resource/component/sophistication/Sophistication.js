@@ -3,17 +3,15 @@ import { store, history } from 'jsDir/store.js'
 import { loaderToNext, loaderToReset, updateLastPage } from 'jsDir/action.js'
 import { connect } from 'react-redux'
 
-require('cssDir/animation/animation.css')
+require('cssDir/sophistication/sophistication.css')
 import SecondNav from 'componentDir/common/SecondNav.js'
 import GlobalCover from 'componentDir/common/GlobalCover.js'
-import VideosList from 'componentDir/animation/VideosList.js'
 
-class AnimationContainer extends React.Component {
+class SophisticationContainer extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			skrollr: null,
-			offsetWidth: document.body.offsetWidth - 3785,
 		}
 		this.handleScroll = this.handleScroll.bind(this)
 	}
@@ -24,10 +22,10 @@ class AnimationContainer extends React.Component {
 		delay(0).then(() => {
 			const { lastPage } = this.props
 			if (lastPage !== '') {
-				if (lastPage !== '/02-animation') {
+				if (lastPage !== '/03-sophistication') {
 					const { loader, loaderToNext, loaderToReset } = this.props
 					if (loader.loader === null) {
-						const date = ['02', '动画']
+						const date = ['03', '精致']
 						loaderToNext(date)
 						delay(1000).then(() => {
 							this.state.skrollr.setScrollTop(400)
@@ -36,7 +34,7 @@ class AnimationContainer extends React.Component {
 							loaderToReset(date)
 						})
 					} else {
-						const date = ['02', '动画']
+						const date = ['03', '精致']
 						this.state.skrollr.setScrollTop(400)
 						loaderToReset(date)
 					}
@@ -49,47 +47,43 @@ class AnimationContainer extends React.Component {
 		this.state.skrollr.destroy()
 		this.setState({
 			skrollr: null,
-			offsetWidth: null,
 		})
 		removeScrollHandler(this.handleScroll)
-		this.props.updateLastPage('/02-animation')
+		this.props.updateLastPage('/03-sophistication')
 	}
 	handleScroll() {
-		if (this.state.skrollr.getScrollTop() < 100) {
-			const { loader, loaderToNext, loaderToReset } = this.props
-			if (loader.loader === null) {
-				const date = ['01', '显示']
-				loaderToNext(date)
-				delay(1500).then(() => {
-					history.push('/01-display')
-				})
-			}
-		}
-		if (this.state.skrollr.getScrollTop() > 4100) {
-			const { loader, loaderToNext, loaderToReset } = this.props
-			if (loader.loader === null) {
-				const date = ['03', '精致']
-				loaderToNext(date)
-				delay(1500).then(() => {
-					history.push('/03-sophistication')
-				})
-			}
-		}
+		// if (this.state.skrollr.getScrollTop() < 100) {
+		// 	const { loader, loaderToNext, loaderToReset } = this.props
+		// 	if (loader.loader === null) {
+		// 		const date = ['02', '动画']
+		// 		loaderToNext(date)
+		// 		delay(1500).then(() => {
+		// 			history.push('/02-animation')
+		// 		})
+		// 	}
+		// }
+		// if (this.state.skrollr.getScrollTop() > 4100) {
+		// 	const { loader, loaderToNext, loaderToReset } = this.props
+		// 	if (loader.loader === null) {
+		// 		const date = ['04', '设计']
+		// 		loaderToNext(date)
+		// 		delay(1500).then(() => {
+		// 			history.push('/04-design')
+		// 		})
+		// 	}
+		// }
 	}
 	render() {
 		return (
-			<div className="animation-box">
+			<div className="sophistication-box">
 				<SecondNav />
-				<div className="ab-content" data-400="left: 0px;" data-3800={ "left: " + this.state.offsetWidth + "px;" }>
-					{ VideosList }
-				</div>
 				<GlobalCover data-0="opacity: 0.8;" data-400="opacity: 0;" data-3800="opacity: 0;" data-4200="opacity: 0.8;" />
 			</div>
 		)
 	}
 }
 
-AnimationContainer.propTypes = {
+SophisticationContainer.propTypes = {
 	lastPage: PropTypes.string.isRequired,
 	loader: PropTypes.object.isRequired,
 	loaderToNext: PropTypes.func.isRequired,
@@ -110,9 +104,9 @@ const mapDispatchToProps = dispatch => {
 		updateLastPage: (...args) => store.dispatch(updateLastPage(...args)),
 	}
 }
-const Animation = connect(
+const Sophistication = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(AnimationContainer)
+)(SophisticationContainer)
 
-export default Animation
+export default Sophistication
