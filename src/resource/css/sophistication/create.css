@@ -1,0 +1,178 @@
+.sb-create {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #252525;
+}
+.sb-create .sb-text-box {
+  height: 356px;
+  left: 100%;
+}
+.sb-create .sb-text-word {
+  left: 250%;
+}
+.sb-create .sb-logo {
+  left: 500%;
+}
+.sb-c-img {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 710px;
+  height: 461px;
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+.sb-c-img div {
+  position: absolute;
+  width: 710px;
+  height: 2850px;
+  z-index: 100;
+}
+.sb-c-img img {
+  margin-bottom: -6px;
+}
+.sb-create .sb-text-box {
+  animation: sbToRight1 0.75s 0.3s ease-in-out forwards;
+}
+.sb-create .sb-text-word {
+  animation: sbToRight2 0.75s 0.3s ease-in-out forwards;
+}
+.sb-create .sb-logo {
+  animation: sbToRight3 0.75s 0.3s ease-in-out forwards;
+}
+.sb-create .sb-c-img {
+  animation: sbToRight4 0.75s 0.3s ease-in-out forwards;
+}
+@-moz-keyframes sbToRight1 {
+  from {
+    left: 100%;
+  }
+  to {
+    left: calc(50% - 470px);
+  }
+}
+@-webkit-keyframes sbToRight1 {
+  from {
+    left: 100%;
+  }
+  to {
+    left: calc(50% - 470px);
+  }
+}
+@-o-keyframes sbToRight1 {
+  from {
+    left: 100%;
+  }
+  to {
+    left: calc(50% - 470px);
+  }
+}
+@keyframes sbToRight1 {
+  from {
+    left: 100%;
+  }
+  to {
+    left: calc(50% - 470px);
+  }
+}
+@-moz-keyframes sbToRight2 {
+  from {
+    left: 250%;
+  }
+  to {
+    left: 0%;
+  }
+}
+@-webkit-keyframes sbToRight2 {
+  from {
+    left: 250%;
+  }
+  to {
+    left: 0%;
+  }
+}
+@-o-keyframes sbToRight2 {
+  from {
+    left: 250%;
+  }
+  to {
+    left: 0%;
+  }
+}
+@keyframes sbToRight2 {
+  from {
+    left: 250%;
+  }
+  to {
+    left: 0%;
+  }
+}
+@-moz-keyframes sbToRight3 {
+  from {
+    left: 500%;
+  }
+  to {
+    left: 0%;
+  }
+}
+@-webkit-keyframes sbToRight3 {
+  from {
+    left: 500%;
+  }
+  to {
+    left: 0%;
+  }
+}
+@-o-keyframes sbToRight3 {
+  from {
+    left: 500%;
+  }
+  to {
+    left: 0%;
+  }
+}
+@keyframes sbToRight3 {
+  from {
+    left: 500%;
+  }
+  to {
+    left: 0%;
+  }
+}
+@-moz-keyframes sbToRight4 {
+  from {
+    left: 300%;
+  }
+  to {
+    left: calc(50% - 140px);
+  }
+}
+@-webkit-keyframes sbToRight4 {
+  from {
+    left: 300%;
+  }
+  to {
+    left: calc(50% - 140px);
+  }
+}
+@-o-keyframes sbToRight4 {
+  from {
+    left: 300%;
+  }
+  to {
+    left: calc(50% - 140px);
+  }
+}
+@keyframes sbToRight4 {
+  from {
+    left: 300%;
+  }
+  to {
+    left: calc(50% - 140px);
+  }
+}

@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 require('cssDir/sophistication/sophistication.css')
 import SecondNav from 'componentDir/common/SecondNav.js'
 import GlobalCover from 'componentDir/common/GlobalCover.js'
+import Create from 'componentDir/sophistication/Create.js'
 
 class SophisticationContainer extends React.Component {
 	constructor(props) {
@@ -77,6 +78,7 @@ class SophisticationContainer extends React.Component {
 		return (
 			<div className="sophistication-box">
 				<SecondNav />
+				{ Create }
 				<GlobalCover data-0="opacity: 0.8;" data-400="opacity: 0;" data-3800="opacity: 0;" data-4200="opacity: 0.8;" />
 			</div>
 		)
