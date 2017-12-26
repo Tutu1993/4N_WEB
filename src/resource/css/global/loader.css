@@ -30,7 +30,7 @@
   height: 100%;
   background-color: #f0f0f0;
   z-index: 999;
-  animation: toTop 0.8s ease-in-out forwards;
+  animation: glToTop 0.8s ease-in-out forwards;
 }
 .gl-content h4 {
   position: absolute;
@@ -55,7 +55,7 @@
   transform: translateX(-50%);
   background: url("../../imgs/global/4N-loader.gif") no-repeat center center;
 }
-@-moz-keyframes toTop {
+@-moz-keyframes glToTop {
   from {
     top: 70%;
   }
@@ -63,7 +63,7 @@
     top: 0%;
   }
 }
-@-webkit-keyframes toTop {
+@-webkit-keyframes glToTop {
   from {
     top: 70%;
   }
@@ -71,7 +71,7 @@
     top: 0%;
   }
 }
-@-o-keyframes toTop {
+@-o-keyframes glToTop {
   from {
     top: 70%;
   }
@@ -79,7 +79,7 @@
     top: 0%;
   }
 }
-@keyframes toTop {
+@keyframes glToTop {
   from {
     top: 70%;
   }

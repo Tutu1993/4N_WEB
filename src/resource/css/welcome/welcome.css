@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
   z-index: 100;
-  animation: toTop 1s ease-in-out forwards;
+  animation: wbToTop 1s ease-in-out forwards;
 }
 .wb-hello span {
   display: block;
@@ -33,7 +33,7 @@
   left: 0;
   background: url("../../imgs/welcome/4N-welcome.jpg") no-repeat center center;
   z-index: 99;
-  animation: toRight 1.25s ease-in-out forwards;
+  animation: wbToRight 1.25s ease-in-out forwards;
 }
 .wb-lists {
   position: fixed;
@@ -142,14 +142,14 @@
 }
 .wb-arrow:before {
   top: 0;
-  animation: toggleOpacity 1s ease-in-out infinite;
+  animation: wbToggleOpacity 1s ease-in-out infinite;
 }
 .wb-arrow:after {
   opacity: 0.5;
   top: 9px;
-  animation: toggleOpacity 1s 0.5s ease-in-out infinite;
+  animation: wbToggleOpacity 1s 0.5s ease-in-out infinite;
 }
-@-moz-keyframes toTop {
+@-moz-keyframes wbToTop {
   from {
     margin-top: 200%;
   }
@@ -157,7 +157,7 @@
     margin-top: 0%;
   }
 }
-@-webkit-keyframes toTop {
+@-webkit-keyframes wbToTop {
   from {
     margin-top: 200%;
   }
@@ -165,7 +165,7 @@
     margin-top: 0%;
   }
 }
-@-o-keyframes toTop {
+@-o-keyframes wbToTop {
   from {
     margin-top: 200%;
   }
@@ -173,7 +173,7 @@
     margin-top: 0%;
   }
 }
-@keyframes toTop {
+@keyframes wbToTop {
   from {
     margin-top: 200%;
   }
@@ -181,7 +181,7 @@
     margin-top: 0%;
   }
 }
-@-moz-keyframes toRight {
+@-moz-keyframes wbToRight {
   from {
     margin-left: -1700px;
   }
@@ -189,7 +189,7 @@
     margin-left: 0;
   }
 }
-@-webkit-keyframes toRight {
+@-webkit-keyframes wbToRight {
   from {
     margin-left: -1700px;
   }
@@ -197,7 +197,7 @@
     margin-left: 0;
   }
 }
-@-o-keyframes toRight {
+@-o-keyframes wbToRight {
   from {
     margin-left: -1700px;
   }
@@ -205,7 +205,7 @@
     margin-left: 0;
   }
 }
-@keyframes toRight {
+@keyframes wbToRight {
   from {
     margin-left: -1700px;
   }
@@ -213,7 +213,7 @@
     margin-left: 0;
   }
 }
-@-moz-keyframes toggleOpacity {
+@-moz-keyframes wbToggleOpacity {
   from {
     opacity: 1;
   }
@@ -221,7 +221,7 @@
     opacity: 0.5;
   }
 }
-@-webkit-keyframes toggleOpacity {
+@-webkit-keyframes wbToggleOpacity {
   from {
     opacity: 1;
   }
@@ -229,7 +229,7 @@
     opacity: 0.5;
   }
 }
-@-o-keyframes toggleOpacity {
+@-o-keyframes wbToggleOpacity {
   from {
     opacity: 1;
   }
@@ -237,7 +237,7 @@
     opacity: 0.5;
   }
 }
-@keyframes toggleOpacity {
+@keyframes wbToggleOpacity {
   from {
     opacity: 1;
   }
