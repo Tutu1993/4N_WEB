@@ -25,7 +25,7 @@ const VideosList = videos.map((video, index) => {
 	return (
 		<div className="ab-video" key={ index }>
 			<div className="ab-v-box">
-				<div className="ab-v-img" style={ {background: `black url(${ require('imgsDir/' + video.img) }) no-repeat center center`} }></div>
+				<div className="ab-v-img" style={{ background: `black url(${ require('imgsDir/' + video.img) }) no-repeat center center` }}></div>
 				<div className="ab-v-play"></div>
 				<div className="ab-v-text">
 					<h2>{ video.title }</h2>

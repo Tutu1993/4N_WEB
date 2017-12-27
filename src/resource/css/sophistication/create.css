@@ -15,6 +15,11 @@
 .sb-create .sb-text-word {
   left: 250%;
 }
+.sb-create .sb-text-word p {
+  display: block;
+  overflow: hidden;
+  transition: height 0.25s ease-in-out;
+}
 .sb-create .sb-logo {
   left: 500%;
 }

@@ -13,6 +13,7 @@ class SophisticationContainer extends React.Component {
 		super(props)
 		this.state = {
 			skrollr: null,
+			toggleText: false,
 		}
 		this.handleScroll = this.handleScroll.bind(this)
 	}
@@ -53,6 +54,20 @@ class SophisticationContainer extends React.Component {
 		this.props.updateLastPage('/03-sophistication')
 	}
 	handleScroll() {
+		if (this.state.skrollr.getScrollTop() > 1500) {
+			if (!this.state.toggleText) {
+				this.setState({
+					toggleText: true
+				})
+			}
+		} else {
+			if (this.state.toggleText) {
+				this.setState({
+					toggleText: false
+				})
+			}
+		}
+		console.log(this.state.toggleText)
 		// if (this.state.skrollr.getScrollTop() < 100) {
 		// 	const { loader, loaderToNext, loaderToReset } = this.props
 		// 	if (loader.loader === null) {
@@ -78,7 +93,7 @@ class SophisticationContainer extends React.Component {
 		return (
 			<div className="sophistication-box">
 				<SecondNav />
-				{ Create }
+				<Create isToggle={ this.state.toggleText }/>
 				<GlobalCover data-0="opacity: 0.8;" data-400="opacity: 0;" data-3800="opacity: 0;" data-4200="opacity: 0.8;" />
 			</div>
 		)

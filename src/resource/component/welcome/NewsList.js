@@ -38,7 +38,7 @@ const NewsList = newsArr.map((value, index) => {
 				</div>
 			</div>
 			<div className="wb-list-title">{ value.title }</div>
-			<div className="wb-list-img" style={ {background: `url(${ value.img }) no-repeat center center`, backgroundSize: 'contain'} }></div>
+			<div className="wb-list-img" style={{ background: `url(${ value.img }) no-repeat center center`, backgroundSize: 'contain' }}></div>
 			<Link className="wb-list-link" to={ value.href }>了解更多</Link>
 		</div>
 	)
